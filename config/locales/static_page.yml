@@ -1,0 +1,9 @@
+en:
+  static_pages:
+    home: "Home"
+    exam: "Exam"
+    signin: "Sign in"
+    signup: "Sign up"
+    title: "Framgia Test"
+    footer:
+      title: "Framgia Test"

@@ -14,6 +14,7 @@ gem "kaminari"
 gem "cancancan"
 gem "settingslogic"
 gem "carrierwave"
+gem "bootstrap-sass"
 
 group :production do
   gem "unicorn"

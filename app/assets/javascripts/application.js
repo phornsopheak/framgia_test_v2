@@ -14,3 +14,9 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+
+$(document).on("ready", function() {
+  setTimeout(function() {
+    $(".hide-flash").fadeOut("normal");
+  }, 3000);
+});
