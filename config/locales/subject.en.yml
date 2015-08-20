@@ -1,0 +1,5 @@
+en:
+  subjects:
+    list_subject: "All Subjects"
+    actions:
+      test: "Test"
