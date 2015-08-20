@@ -1,0 +1,21 @@
+defaults: &defaults
+  exam:
+    question_type:
+      single_choice: "single choice"
+      multiple_choice: "multiple choice"
+      text: "text"
+  status:
+    start: "start"
+    testing: "testing"
+    finish: "finish"
+    checked: "checked"
+    unchecked: "unchecked"
+
+development:
+  <<: *defaults
+
+test:
+  <<: *defaults
+
+production:
+  <<: *defaults

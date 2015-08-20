@@ -24,5 +24,7 @@ group :development, :test do
   gem "capistrano-rails"
   gem "pry"
   gem "spring"
+  gem "faker"
+  gem "factory_girl_rails"
 end
 
