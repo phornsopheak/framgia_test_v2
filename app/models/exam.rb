@@ -4,4 +4,8 @@ class Exam < ActiveRecord::Base
 
   has_many :questions, through: :results
   has_many :results
+
+  def start?
+    Settings.status.start == status
+  end
 end

@@ -1,0 +1,21 @@
+.exam {
+  .created_date, .subject {
+    width: 20%;
+  }
+
+  .status, .duration, .spent_time {
+    width: 10%;
+  }
+
+  .question_number {
+    width: 15%;
+  }
+
+  .score {
+    width: 10%;
+  }
+
+  .action {
+    width: 5%;
+  }
+}
