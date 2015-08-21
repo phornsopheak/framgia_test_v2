@@ -30,3 +30,5 @@ en:
     formats:
       default: ! "%Y/%m/%d"
       short: ! "%y/%m/%d"
+  labels:
+    form_inform_errors: "The form contains "
