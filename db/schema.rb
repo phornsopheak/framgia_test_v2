@@ -25,12 +25,12 @@ ActiveRecord::Schema.define(version: 20150819083145) do
 
   create_table "exams", force: :cascade do |t|
     t.integer  "score",      limit: 4
-    t.string   "status",     limit: 255
+    t.string   "status",     limit: 255, default: "start"
     t.integer  "time",       limit: 4
     t.integer  "user_id",    limit: 4
     t.integer  "subject_id", limit: 4
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
+    t.datetime "created_at",                               null: false
+    t.datetime "updated_at",                               null: false
   end
 
   add_index "exams", ["subject_id"], name: "index_exams_on_subject_id", using: :btree

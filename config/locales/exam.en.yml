@@ -1,6 +1,8 @@
 en:
   exam:
     title: "Examination List"
+    labels:
+      select_subject: "Select Subject"
     header:
       created_date: "Created Date"
       subject: "Subject"
@@ -12,3 +14,4 @@ en:
     buttons:
       view: "View"
       start: "Start"
+      create_exam: "Create Exam"

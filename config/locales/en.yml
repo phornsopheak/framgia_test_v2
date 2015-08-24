@@ -32,3 +32,12 @@ en:
       short: ! "%y/%m/%d"
   labels:
     form_inform_errors: "The form contains "
+  flashs:
+    messages:
+      created: "%{model_name} was created successfully!"
+      not_created: "%{model_name} couldn't be created!"
+      deleted: "%{model_name} was deleted successfully!"
+      not_deleted: "%{model_name} couldn't be deleted!"
+      updated: "%{model_name} was updated successfully!"
+      not_updated: "%{model_name} couldn't be updated"
+      created: "%{model_name} was created successfully!"

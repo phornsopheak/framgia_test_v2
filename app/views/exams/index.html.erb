@@ -1,8 +1,9 @@
 <% provide :title, t("exam.title") %>
 <div class="row exam">
   <div class="col-md-10 col-md-offset-1">
-    <h2><%= t "exam.title" %></h2>
+    <%= render "exam_start_form" %>
     <hr>
+    <h3><%= t "exam.title" %></h3>
     <%= render_pagination @exams %>
     <table class="table">
       <thead>

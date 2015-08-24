@@ -20,4 +20,8 @@ module ApplicationHelper
   def render_pagination collection
     paginate collection, theme: "twitter-bootstrap-3", pagination_class: "pagination-sm"
   end
+
+  def flash_message flash_type
+    t "flashs.messages.#{flash_type}", model_name: controller_name.classify
+  end
 end
