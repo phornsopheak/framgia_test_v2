@@ -1,0 +1,14 @@
+en:
+  exam:
+    title: "Examination List"
+    header:
+      created_date: "Created Date"
+      subject: "Subject"
+      status: "Status"
+      duration: "Duration"
+      spent_time: "Spent Time"
+      question_number: "Question number"
+      score: "Score"
+    buttons:
+      view: "View"
+      start: "Start"

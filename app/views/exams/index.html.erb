@@ -1,0 +1,22 @@
+<% provide :title, t("exam.title") %>
+<div class="row exam">
+  <div class="col-md-10 col-md-offset-1">
+    <h2><%= t "exam.title" %></h2>
+    <hr>
+    <%= render_pagination @exams %>
+    <table class="table">
+      <thead>
+        <th class="created_date"><%= t "exam.header.created_date" %></th>
+        <th class="subject"><%= t "exam.header.subject" %></th>
+        <th class="status"><%= t "exam.header.status" %></th>
+        <th class="duration"><%= t "exam.header.duration" %></th>
+        <th class="question_number"><%= t "exam.header.question_number" %></th>
+        <th class="spent_time"><%= t "exam.header.spent_time" %></th>
+        <th class="score"><%= t "exam.header.score" %></th>
+        <th class="action"></th>
+      </thead>
+      <%= render @exams %>
+    </table>
+    <%= render_pagination @exams %>
+  </div>
+</div>

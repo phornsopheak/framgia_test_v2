@@ -1,12 +1,28 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
-.footer {
-  border-top: 1px solid;
-  border-color: #BCBCBC;
-  margin-top: 600px;
+body, html {
+  height: 100%;
+}
+
+#wrapper {
+   height: 100%;
+  .content {
+    min-height: 500px;
+  }
+
+  .footer {
+    height: 25px;
+    border-top: 1px solid #E1E1E1;
+    padding-top: 10px;
+    font-weight: bold;
+  }
 }
 
 .navbar-left {
   font-size: 20px;
+}
+
+thead {
+  background-color: #E1E1E1;
 }
