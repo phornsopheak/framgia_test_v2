@@ -3,6 +3,7 @@ en:
     title: "Examination List"
     labels:
       select_subject: "Select Subject"
+      time_remain: "Time remain:"
     header:
       created_date: "Created Date"
       subject: "Subject"
@@ -15,3 +16,4 @@ en:
       view: "View"
       start: "Start"
       create_exam: "Create Exam"
+      submit: "Submit"

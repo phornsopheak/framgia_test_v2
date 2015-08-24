@@ -7,13 +7,13 @@ FactoryGirl.define do
 
     after(:create) do |question|
       if question.question_type == "text"
-        FactoryGirl.create :answer, question: question
+        FactoryGirl.create :option, question: question
       elsif question.question_type == "single choice"
-        FactoryGirl.create :answer, question: question, correct: true
-        FactoryGirl.create_list :answer, 3, question: question, correct: false
+        FactoryGirl.create :option, question: question, correct: true
+        FactoryGirl.create_list :option, 3, question: question, correct: false
       else
-        FactoryGirl.create_list :answer, 2, question: question, correct: true
-        FactoryGirl.create_list :answer, 2, question: question, correct: false
+        FactoryGirl.create_list :option, 2, question: question, correct: true
+        FactoryGirl.create_list :option, 2, question: question, correct: false
       end
     end
   end

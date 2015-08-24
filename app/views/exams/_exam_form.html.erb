@@ -1,0 +1,29 @@
+<%= form_for @exam do |f| %>
+  <ol>
+    <%= f.fields_for :results do |ff| %>
+      <li><%= ff.object.question.content %></li>
+      <br/>
+      <% if ff.object.question.is_type? Settings.exam.question_type.multiple_choice %>
+        <%= ff.collection_check_boxes :option_ids, ff.object.question.options,
+          :id, :content, {}, {disabled: state} do |ck| %>
+            <%= ck.label(class: "check_box"){ck.check_box(class: "ck") + ck.text} %>
+        <% end %>
+      <% else %>
+        <%= ff.fields_for :answers do |fff| %>
+          <% if ff.object.question.is_type? Settings.exam.question_type.text %>
+            <%= fff.text_area :content, readonly: state, class: "form-control" %>
+          <% else %>
+            <%= fff.collection_radio_buttons :option_id, ff.object.question.options,
+              :id, :content, {}, {disabled: state} do |rb| %>
+                <%= rb.label(class: "radio"){rb.radio_button + rb.text} %>
+            <% end %>
+          <% end %>
+        <% end %>
+      <% end %>
+      <br/>
+    <% end %>
+  </ol>
+  <% if false == state %>
+    <%= f.submit t("exam.buttons.submit"), class: "btn btn-primary btn-submit" %>
+  <% end %>
+<% end %>

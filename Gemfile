@@ -17,6 +17,7 @@ gem "cancancan"
 gem "settingslogic"
 gem "carrierwave"
 gem "bootstrap-sass"
+gem "jquery-countdown-rails"
 
 group :production do
   gem "unicorn"

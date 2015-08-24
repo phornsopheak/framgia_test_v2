@@ -13,7 +13,9 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
+//= require jquery.countdown
 //= require bootstrap-sprockets
+//= require countdown
 
 $(document).on("ready", function() {
   setTimeout(function() {
