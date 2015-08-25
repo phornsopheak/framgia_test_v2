@@ -1,7 +1,4 @@
 class Answer < ActiveRecord::Base
-  belongs_to :question
-
-  has_many :results
-
-  validates :content, presence: true
+  belongs_to :result
+  belongs_to :option
 end
