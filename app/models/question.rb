@@ -5,4 +5,8 @@ class Question < ActiveRecord::Base
   has_many :answers
   has_many :exams, through: :results
   has_many :results
+
+  validates :content, presence: true
+
+  accepts_nested_attributes_for :answers, allow_destroy: true
 end

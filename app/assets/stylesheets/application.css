@@ -13,5 +13,6 @@
  *= require devises
  *= require exams
  *= require staticpages
+ *= require questions
  *= require_self
  */

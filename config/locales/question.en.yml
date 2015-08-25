@@ -1,0 +1,8 @@
+en:
+  questions:
+    suggest_question: "Suggest Question"
+    features:
+      suggest: "Suggest"
+      remove: "Remove"
+      add_option: "Add more option"
+      correct_option: "Correct option"

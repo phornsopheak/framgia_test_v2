@@ -41,3 +41,4 @@ en:
       updated: "%{model_name} was updated successfully!"
       not_updated: "%{model_name} couldn't be updated"
       created: "%{model_name} was created successfully!"
+      suggested: "%{model_name} was suggested successfully!"

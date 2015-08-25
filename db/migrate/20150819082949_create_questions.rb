@@ -3,7 +3,7 @@ class CreateQuestions < ActiveRecord::Migration
     create_table :questions do |t|
       t.text :content
       t.string :question_type
-      t.boolean :state
+      t.boolean :state, default: false
       t.references :subject, index: true, foreign_key: true
       t.references :user, index: true, foreign_key: true
 
