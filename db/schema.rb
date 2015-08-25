@@ -39,11 +39,11 @@ ActiveRecord::Schema.define(version: 20150819083145) do
   create_table "questions", force: :cascade do |t|
     t.text     "content",       limit: 65535
     t.string   "question_type", limit: 255
-    t.boolean  "state"
+    t.boolean  "state",                       default: false
     t.integer  "subject_id",    limit: 4
     t.integer  "user_id",       limit: 4
-    t.datetime "created_at",                  null: false
-    t.datetime "updated_at",                  null: false
+    t.datetime "created_at",                                  null: false
+    t.datetime "updated_at",                                  null: false
   end
 
   add_index "questions", ["subject_id"], name: "index_questions_on_subject_id", using: :btree
@@ -73,7 +73,6 @@ ActiveRecord::Schema.define(version: 20150819083145) do
   create_table "users", force: :cascade do |t|
     t.string   "name",                   limit: 255
     t.string   "email",                  limit: 255, default: "",    null: false
-    t.string   "avatar",                 limit: 255
     t.boolean  "admin",                              default: false
     t.string   "encrypted_password",     limit: 255, default: "",    null: false
     t.string   "reset_password_token",   limit: 255
