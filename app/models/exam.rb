@@ -1,4 +1,6 @@
 class Exam < ActiveRecord::Base
+  include RailsAdminExam
+
   belongs_to :user
   belongs_to :subject
 
@@ -38,11 +40,15 @@ class Exam < ActiveRecord::Base
     update_attribute :status, Settings.status.unchecked  if time_out? && exam_status?(Settings.status.testing)
   end
 
-  def send_score_to_chatwork
-    ChatWork.api_key = current_user.chatwork_api_key
+  def send_score_to_chatwork user
+    ChatWork.api_key = user.chatwork_api_key
     room_id = subject.chatwork_room_id
     body = I18n.t("exam.labels.score_inform", score: score, total: subject.number_of_question,
       to_id: user.chatwork_id, user_name: user.name)
     ChatWork::Message.create room_id: room_id, body: body
+  end
+
+  def calculate_score
+    results.where(correct: true).count
   end
 end

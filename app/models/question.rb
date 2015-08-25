@@ -5,6 +5,7 @@ class Question < ActiveRecord::Base
   belongs_to :user
 
   enum state: [:waiting, :accepted, :rejected]
+  enum question_type: [:single_choice, :multiple_choice, :text]
 
   has_many :options, dependent: :destroy
   has_many :exams, through: :results
