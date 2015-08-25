@@ -11,17 +11,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150819083145) do
+ActiveRecord::Schema.define(version: 20150825052210) do
 
   create_table "answers", force: :cascade do |t|
-    t.text     "content",     limit: 65535
-    t.boolean  "correct"
-    t.integer  "question_id", limit: 4
-    t.datetime "created_at",                null: false
-    t.datetime "updated_at",                null: false
+    t.text     "content",    limit: 65535
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
+    t.integer  "option_id",  limit: 4
+    t.integer  "result_id",  limit: 4
   end
 
-  add_index "answers", ["question_id"], name: "index_answers_on_question_id", using: :btree
+  add_index "answers", ["option_id"], name: "index_answers_on_option_id", using: :btree
+  add_index "answers", ["result_id"], name: "index_answers_on_result_id", using: :btree
 
   create_table "exams", force: :cascade do |t|
     t.integer  "score",      limit: 4
@@ -35,6 +36,16 @@ ActiveRecord::Schema.define(version: 20150819083145) do
 
   add_index "exams", ["subject_id"], name: "index_exams_on_subject_id", using: :btree
   add_index "exams", ["user_id"], name: "index_exams_on_user_id", using: :btree
+
+  create_table "options", force: :cascade do |t|
+    t.string   "content",     limit: 255
+    t.boolean  "correct"
+    t.integer  "question_id", limit: 4
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
+  end
+
+  add_index "options", ["question_id"], name: "index_options_on_question_id", using: :btree
 
   create_table "questions", force: :cascade do |t|
     t.text     "content",       limit: 65535
@@ -50,15 +61,12 @@ ActiveRecord::Schema.define(version: 20150819083145) do
   add_index "questions", ["user_id"], name: "index_questions_on_user_id", using: :btree
 
   create_table "results", force: :cascade do |t|
-    t.text     "content",     limit: 65535
     t.integer  "question_id", limit: 4
     t.integer  "exam_id",     limit: 4
-    t.integer  "answer_id",   limit: 4
-    t.datetime "created_at",                null: false
-    t.datetime "updated_at",                null: false
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
   end
 
-  add_index "results", ["answer_id"], name: "index_results_on_answer_id", using: :btree
   add_index "results", ["exam_id"], name: "index_results_on_exam_id", using: :btree
   add_index "results", ["question_id"], name: "index_results_on_question_id", using: :btree
 
@@ -90,12 +98,13 @@ ActiveRecord::Schema.define(version: 20150819083145) do
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
-  add_foreign_key "answers", "questions"
+  add_foreign_key "answers", "options"
+  add_foreign_key "answers", "results"
   add_foreign_key "exams", "subjects"
   add_foreign_key "exams", "users"
+  add_foreign_key "options", "questions"
   add_foreign_key "questions", "subjects"
   add_foreign_key "questions", "users"
-  add_foreign_key "results", "answers"
   add_foreign_key "results", "exams"
   add_foreign_key "results", "questions"
 end
