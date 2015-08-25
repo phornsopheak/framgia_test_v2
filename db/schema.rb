@@ -50,11 +50,11 @@ ActiveRecord::Schema.define(version: 20150825052210) do
   create_table "questions", force: :cascade do |t|
     t.text     "content",       limit: 65535
     t.string   "question_type", limit: 255
-    t.boolean  "state",                       default: false
+    t.integer  "state",         limit: 4,     default: 0
     t.integer  "subject_id",    limit: 4
     t.integer  "user_id",       limit: 4
-    t.datetime "created_at",                                  null: false
-    t.datetime "updated_at",                                  null: false
+    t.datetime "created_at",                              null: false
+    t.datetime "updated_at",                              null: false
   end
 
   add_index "questions", ["subject_id"], name: "index_questions_on_subject_id", using: :btree

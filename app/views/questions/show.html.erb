@@ -1,0 +1,44 @@
+<div id="question" class="row">
+  <div class="col-md-8 col-md-offset-2">
+    <h2><b><%= t "questions.title.question" %></b></h2>
+    <table id="table-show">
+      <tr>
+        <td width="40%"><b><%= t "questions.title.content" %></b></td>
+        <td><%= @question.content %></td>
+      </tr>
+      <tr>
+        <td><b><%= t "questions.title.option" %></b></td>
+        <td><%= render partial: "option", collection: @options %></td>
+      </tr>
+      <tr>
+        <td><b><%= t "questions.title.subject" %></b></td>
+        <td><%= @question.subject.name %></td>
+      </tr>
+      <tr>
+        <td><b><%= t "questions.title.question_type" %></b></td>
+        <td><%= @question.question_type.capitalize %></td>
+      </tr>
+      <tr>
+        <td><b><%= t "questions.title.state" %></b></td>
+        <td>
+          <% if @question.accepted? %>
+            <div class="state-label label label-primary">
+          <% elsif @question.waiting? %>
+            <div class="state-label label label-warning">
+          <% else %>
+            <div class="state-label label label-danger">
+          <% end %>
+          <%= @question.state.capitalize %>
+          </div>
+        </td>
+      </tr>
+    </table>
+    <% unless @question.accepted? %>
+      <%= link_to t("questions.features.edit"), edit_user_question_path(current_user,  @question),
+        class: "btn btn-primary glyphicon glyphicon-pencil btn-width", data: {no_turbolink: true} %>
+      <%= link_to t("questions.features.delete"), user_question_path(current_user, @question),
+        method: :delete, data: {confirm: t("dialogs.delete_dialog")},
+        class: "btn btn-danger glyphicon glyphicon-trash btn-width" %>
+    <% end %>
+  </div>
+</div>

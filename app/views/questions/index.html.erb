@@ -1,0 +1,19 @@
+<% provide :title, t("questions.suggest_question") %>
+<div class="row" id="question">
+  <div class="col-md-10 col-md-offset-1">
+    <h2><b><%= t "questions.suggested_question" %></b></h2>
+    <table class="table">
+      <thead>
+        <th class="number_id"><%= t "questions.title.stt" %></th>
+        <th class="content"><%= t "questions.title.question" %></th>
+        <th class="subject"><%= t "questions.title.subject" %></th>
+        <th class="type"><%= t "questions.title.type" %></th>
+        <th class="state"><%= t "questions.title.state" %></th>
+        <th class="action"></th>
+      </thead>
+      <%= render @questions %>
+    </table>
+    <%= render_pagination @questions %>
+  </div>
+</div>
+

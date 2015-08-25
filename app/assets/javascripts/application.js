@@ -23,6 +23,7 @@ $(document).on("ready", function() {
   }, 3000);
 
   check_question_type();
+  check_box_state();
 
   $("#question_question_type").on("change",function() {
     if (this.value === "text"){
@@ -30,12 +31,16 @@ $(document).on("ready", function() {
       $(".add-button").trigger("click");
       $(".add-button").hide();
       $(".check-box-remove").hide();
+      $(".answer-title").html("Answer");
     }else{
       $(".add-button").show();
       $(".check-box-remove").show();
+      $(".answer-title").html("Option");
     }
   });
 });
+
+$(document).on("page:load page:update", check_box_state);
 
 function remove_fields(link) {
   $(link).prev("input[type=hidden]").val("1");
@@ -46,14 +51,33 @@ function add_fields(link, association, content) {
   var new_id = new Date().getTime();
   var regexp = new RegExp("new_" + association, "g");
   $(link).parent().before(content.replace(regexp, new_id));
+  answer_title();
 }
 
 function check_question_type() {
-  if ($("#question_question_type").val() === "text"){
+  if ($("span.question_type_text").text() === "Text"){
     $(".add-button").hide();
     $(".check-box-remove").hide();
+    $(".answer-title").html("Answer");
   }else{
     $(".add-button").show();
     $(".check-box-remove").show();
+    $(".answer-title").html("Option");
   }
+}
+
+function answer_title() {
+  if ($("#question_question_type").val() === "text"){
+    $(".answer-title").html("Answer");
+  }else{
+    $(".answer-title").html("Option");
+  }
+}
+
+function check_box_state() {
+  $(".check-box").on("change",function(){
+    if ($("#question_question_type").val() === "single_choice"){
+      $(".check-box").not(this).prop("checked", false);
+    }
+  });
 }

@@ -1,9 +1,14 @@
 class QuestionsController < ApplicationController
   load_and_authorize_resource
 
+  before_action :load_subjects, only: [:new, :edit, :update, :create]
+
+  def index
+    @questions = current_user.questions.page params[:page]
+  end
+
   def new
-    @question.answers.build
-    @subjects = Subject.all
+    @question.options.build
   end
 
   def create
@@ -15,9 +20,37 @@ class QuestionsController < ApplicationController
     end
   end
 
+  def show
+    @options = @question.options
+  end
+
+  def edit
+  end
+
+  def update
+    if @question.update_attributes(question_params)
+      redirect_to user_questions_path(current_user), notice: flash_message("updated")
+    else
+      render :edit
+    end
+  end
+
+  def destroy
+    if @question.destroy
+      flash[:success] = flash_message "deleted"
+    else
+      flash[:danger] = flash_message "not_deleted"
+    end
+    redirect_to user_questions_path current_user
+  end
+
   private
   def question_params
     params.require(:question).permit :content, :subject_id, :user_id,
-      :state, :question_type, answers_attributes: [:id, :content, :correct, :_destroy]
+      :state, :question_type, options_attributes: [:id, :content, :correct, :_destroy]
+  end
+
+  def load_subjects
+    @subjects = Subject.all
   end
 end
