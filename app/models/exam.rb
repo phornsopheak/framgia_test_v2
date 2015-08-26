@@ -35,4 +35,12 @@ class Exam < ActiveRecord::Base
   def update_status_exam
     update_attribute :status, Settings.status.unchecked  if time_out? && exam_status?(Settings.status.testing)
   end
+
+  def send_score_to_chatwork
+    ChatWork.api_key = current_user.chatwork_api_key
+    room_id = subject.chatwork_room_id
+    body = I18n.t("exam.labels.score_inform", score: score, total: subject.number_of_question,
+      to_id: user.chatwork_id, user_name: user.name)
+    ChatWork::Message.create room_id: room_id, body: body
+  end
 end

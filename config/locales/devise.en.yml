@@ -2,6 +2,9 @@
 
 en:
   devise:
+    labels:
+      chatwork_id: "ChatWork ID"
+      chatwork_api_key: "ChatWork API Key"
     confirmations:
       confirmed: "Your email address has been successfully confirmed."
       send_instructions: "You will receive an email with instructions for how to confirm your email address in a few minutes."

@@ -7,6 +7,9 @@ class ApplicationController < ActionController::Base
   protected
   def configure_permitted_parameters
     devise_parameter_sanitizer.for(:sign_up).push :name
+    devise_parameter_sanitizer.for(:sign_up).push :chatwork_id
     devise_parameter_sanitizer.for(:account_update).push :name
+    devise_parameter_sanitizer.for(:account_update).push :chatwork_id
+    devise_parameter_sanitizer.for(:account_update).push :chatwork_api_key
   end
 end

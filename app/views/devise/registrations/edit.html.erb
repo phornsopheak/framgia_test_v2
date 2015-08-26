@@ -15,6 +15,18 @@
         <%= f.email_field :email, class: "form-control item" %>
       </p>
 
+      <% if current_user.admin? %>
+        <p class="field">
+          <%= f.label :chatwork_api_key, t("devise.labels.chatwork_api_key") %>
+          <%= f.text_field :chatwork_api_key, class: "form-control item" %>
+        </p>
+      <% end %>
+
+      <p class="field">
+        <%= f.label :chatwork_id, t("devise.labels.chatwork_id") %>
+        <%= f.text_field :chatwork_id, class: "form-control item" %>
+      </p>
+
       <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
         <div><%= t "devise.registrations.waiting_confirmation" %> <%= resource.unconfirmed_email %></div>
       <% end %>
