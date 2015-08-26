@@ -14,5 +14,6 @@
  *= require exams
  *= require staticpages
  *= require questions
+ *= require jquery.countdown
  *= require_self
  */

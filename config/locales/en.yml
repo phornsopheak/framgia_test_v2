@@ -42,3 +42,5 @@ en:
       not_updated: "%{model_name} couldn't be updated"
       created: "%{model_name} was created successfully!"
       suggested: "%{model_name} was suggested successfully!"
+      submit_success: "Your answer sheet has been submitted"
+      invalid: "There is something wrong. Please try again"

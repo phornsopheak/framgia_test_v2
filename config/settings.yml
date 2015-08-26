@@ -7,7 +7,6 @@ defaults: &defaults
   status:
     start: "start"
     testing: "testing"
-    finish: "finish"
     checked: "checked"
     unchecked: "unchecked"
 

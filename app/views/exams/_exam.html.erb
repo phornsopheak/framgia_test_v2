@@ -1,16 +1,17 @@
+<% exam.update_status_exam %>
 <tr>
   <td><%= l exam.created_at, format: :default %></td>
   <td><%= exam.subject.name %></td>
   <td><%= exam.status %></td>
   <td><%= exam.subject.duration %></td>
   <td><%= exam.subject.number_of_question %></td>
-  <td><%= exam.time %></td>
+  <td><%= Time.at(exam.time).utc.strftime("%H:%M:%S") %></td>
   <td><%= exam.score %></td>
   <td>
-    <% if exam.start? %>
-      <%= link_to t("exam.buttons.start"), "#", class: "btn btn-primary" %>
+    <% if exam.exam_status? Settings.status.start %>
+      <%= link_to t("exam.buttons.start"), exam, class: "btn btn-primary" %>
     <% else %>
-      <%= link_to t("exam.buttons.view"), "#", class: "btn btn-success" %>
+      <%= link_to t("exam.buttons.view"), exam, class: "btn btn-success" %>
     <% end %>
   </td>
 </tr>

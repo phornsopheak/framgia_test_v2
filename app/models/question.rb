@@ -8,5 +8,9 @@ class Question < ActiveRecord::Base
 
   validates :content, presence: true
 
-  accepts_nested_attributes_for :answers, allow_destroy: true
+  accepts_nested_attributes_for :options, allow_destroy: true
+
+  def is_type? type
+    type == question_type
+  end
 end

@@ -27,7 +27,7 @@ ActiveRecord::Schema.define(version: 20150825052210) do
   create_table "exams", force: :cascade do |t|
     t.integer  "score",      limit: 4
     t.string   "status",     limit: 255, default: "start"
-    t.integer  "time",       limit: 4
+    t.integer  "time",       limit: 4,   default: 0
     t.integer  "user_id",    limit: 4
     t.integer  "subject_id", limit: 4
     t.datetime "created_at",                               null: false

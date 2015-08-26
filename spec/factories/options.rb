@@ -1,5 +1,5 @@
 FactoryGirl.define do
-  factory :answer do
+  factory :option do
     content {Faker::Lorem.sentence}
   end
 end
