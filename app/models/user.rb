@@ -4,4 +4,6 @@ class User < ActiveRecord::Base
 
   has_many :exams
   has_many :questions
+
+  validates :chatwork_id, presence: true
 end
