@@ -1,0 +1,27 @@
+<tr>
+  <td><%= question_counter + page_index %></td>
+  <td><%= question.content.capitalize %></td>
+  <td><%= question.subject.name.capitalize %></td>
+  <td><%= question.question_type.capitalize %></td>
+  <td>
+    <% if question.accepted? %>
+      <div class="label label-primary">
+    <% elsif question.waiting? %>
+      <div class="label label-warning">
+    <% else %>
+      <div class="label label-danger">
+    <% end %>
+      <%= question.state.capitalize %>
+    </div
+  </td>
+  <td>
+    <%= link_to "", user_question_path(current_user, question), class: "glyphicon glyphicon-eye-open link-underline" %>
+    <% unless question.state == Settings.questions.state.accepted %>
+      <%= link_to "", edit_user_question_path(current_user, question),
+        class: "glyphicon glyphicon-edit icon-padding link-underline", data: {no_turbolink: true} %>
+      <%= link_to "", user_question_path(current_user, question),
+        method: :delete, data: {confirm: t("dialogs.delete_dialog")},
+        class: "glyphicon glyphicon-trash icon-padding link-underline" %>
+    <% end %>
+  </td>
+</tr>

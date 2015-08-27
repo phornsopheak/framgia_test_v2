@@ -44,3 +44,5 @@ en:
       suggested: "%{model_name} was suggested successfully!"
       submit_success: "Your answer sheet has been submitted"
       invalid: "There is something wrong. Please try again"
+  dialogs:
+    delete_dialog: "Are you sure?"

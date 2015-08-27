@@ -2,7 +2,7 @@ FactoryGirl.define do
   factory :question do
     content {Faker::Lorem.sentence}
     question_type {Settings.exam.question_type.to_h.values.sample}
-    state true
+    state 1
     user {User.all.sample}
 
     after(:create) do |question|

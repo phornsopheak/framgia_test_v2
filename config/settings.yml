@@ -9,6 +9,13 @@ defaults: &defaults
     testing: "testing"
     checked: "checked"
     unchecked: "unchecked"
+  questions:
+    state:
+      waiting: "waiting"
+      accepted: "accepted"
+      rejected: "rejected"
+  pagination:
+    per_page: 25
 
 development:
   <<: *defaults

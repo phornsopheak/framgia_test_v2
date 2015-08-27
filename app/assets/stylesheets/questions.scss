@@ -8,12 +8,78 @@
     margin-top: 10px;
   }
 
+  .space-top-submit {
+    margin-top: 40px;
+  }
+
   .space-top-remove {
     margin-top: 5px;
+  }
+
+  .link-underline {
+    text-decoration: none;
+  }
+
+  .button {
+    border-radius: 0px;
+    width: 20%;
+  }
+
+  .btn-width {
+    border-radius: 0px;
+    width: 100px;
+    padding-left: 10px;
+  }
+
+  .width-question-type {
+    width: 50%;
+  }
+
+  table#table-show {
+    border-collapse:separate;
+    border-spacing:0 20px;
+  }
+
+  .question-title {
+    padding: 0;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    h2 {
+      margin: 0;
+      padding: 0;
+    }
   }
 
   .answer-field-box {
      margin-top: 10px;
      margin-bottom: 10px;
+  }
+
+  .icon-padding {
+    margin-left: 5px;
+  }
+
+  .content {
+    width: 41%;
+  }
+
+  .number_id {
+    width: 5%;
+  }
+
+  .action {
+    width: 14%;
+  }
+
+  .state{
+    width: 10%;
+  }
+
+  .type {
+    width: 10%;
+  }
+
+  .subject {
+    width: 25%;
   }
 }

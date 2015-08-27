@@ -1,8 +1,26 @@
 en:
   questions:
+    title:
+      question: "Question"
+      questions: "Questions"
+      stt: "STT"
+      subject: "Subject"
+      state: "State"
+      type: "Type"
+      action: "Action"
+      answer: "Answer"
+      content: "Content"
+      option: "Option"
+      question_type: "Question type"
     suggest_question: "Suggest Question"
+    suggested_question: "Suggested Question"
     features:
+      line: "-"
       suggest: "Suggest"
       remove: "Remove"
       add_option: "Add more option"
       correct_option: "Correct option"
+      edit_question: "Edit question"
+      update_question: "Update"
+      edit: "Edit"
+      delete: "Delete"

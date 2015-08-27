@@ -9,7 +9,7 @@ class Ability
     else
       can :read, :all
       can :create, [Question, Exam]
-      can :update, [Exam, Result]
+      can :update, [Question, Exam, Result]
     end
   end
 end
