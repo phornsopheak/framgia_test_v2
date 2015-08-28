@@ -1,4 +1,6 @@
 class Question < ActiveRecord::Base
+  include RailsAdminQuestion
+
   belongs_to :subject
   belongs_to :user
 
@@ -12,17 +14,12 @@ class Question < ActiveRecord::Base
 
   accepts_nested_attributes_for :options, allow_destroy: true
 
-
-  before_update :change_state
-
-  accepts_nested_attributes_for :options, allow_destroy: true
-
   def is_type? type
     type == question_type
   end
 
-  private
-  def change_state
-    self.state = 0 if state == Settings.questions.state.rejected
-  end
+  scope :systems, ->{where user_id: User.select(:id).where(admin: true)}
+  scope :suggestion, ->{where user_id: User.select(:id).where(admin: false)}
+  scope :rejected, ->{where state: 2}
+  scope :waiting, ->{where state: 0}
 end

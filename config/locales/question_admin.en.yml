@@ -1,0 +1,10 @@
+en:
+  admin:
+    actions:
+      request_question:
+        menu: "Request Questions"
+        title: "Question"
+        breadcrumb: "Question"
+        content: "Content"
+        type: "Question Type"
+        actions: "Actions"
