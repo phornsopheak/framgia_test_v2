@@ -33,9 +33,13 @@ $(document).on("ready", function() {
       $(".check-box-remove").hide();
       $(".answer-title").html("Answer");
     }else{
+      $(".check-box").prop("checked", false);
       $(".add-button").show();
       $(".check-box-remove").show();
       $(".answer-title").html("Option");
+      if (this.value === "single_choice") {
+        $(".check-box:first").prop("checked", true);
+      }
     }
   });
 });

@@ -26,12 +26,12 @@ ActiveRecord::Schema.define(version: 20150825052210) do
 
   create_table "exams", force: :cascade do |t|
     t.integer  "score",      limit: 4
-    t.string   "status",     limit: 255, default: "start"
-    t.integer  "time",       limit: 4,   default: 0
+    t.integer  "status",     limit: 4, default: 0
+    t.integer  "time",       limit: 4, default: 0
     t.integer  "user_id",    limit: 4
     t.integer  "subject_id", limit: 4
-    t.datetime "created_at",                               null: false
-    t.datetime "updated_at",                               null: false
+    t.datetime "created_at",                       null: false
+    t.datetime "updated_at",                       null: false
   end
 
   add_index "exams", ["subject_id"], name: "index_exams_on_subject_id", using: :btree
@@ -61,6 +61,7 @@ ActiveRecord::Schema.define(version: 20150825052210) do
   add_index "questions", ["user_id"], name: "index_questions_on_user_id", using: :btree
 
   create_table "results", force: :cascade do |t|
+    t.boolean  "correct"
     t.integer  "question_id", limit: 4
     t.integer  "exam_id",     limit: 4
     t.datetime "created_at",            null: false

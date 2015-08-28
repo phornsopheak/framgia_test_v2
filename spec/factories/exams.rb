@@ -1,6 +1,6 @@
 FactoryGirl.define do
   factory :exam do
     subject
-    status {Settings.status.start}
+    status 0
   end
 end
