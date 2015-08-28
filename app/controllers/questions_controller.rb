@@ -1,6 +1,9 @@
 class QuestionsController < ApplicationController
-  load_and_authorize_resource
+  before_action :authenticate_user!
+  load_and_authorize_resource :user
+  load_and_authorize_resource :question, through: :user
 
+  before_action :correct_user?
   before_action :load_subjects, only: [:new, :edit, :update, :create]
 
   def index
@@ -28,7 +31,7 @@ class QuestionsController < ApplicationController
   end
 
   def update
-    if @question.update_attributes(question_params)
+    if @question.update_attributes question_params
       redirect_to user_questions_path(current_user), notice: flash_message("updated")
     else
       render :edit
@@ -52,5 +55,9 @@ class QuestionsController < ApplicationController
 
   def load_subjects
     @subjects = Subject.all
+  end
+
+  def correct_user?
+    redirect_to root_path unless current_user == @user
   end
 end

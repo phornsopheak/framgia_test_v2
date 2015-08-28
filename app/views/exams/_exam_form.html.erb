@@ -8,6 +8,7 @@
           :id, :content, {}, {disabled: state} do |ck| %>
             <%= ck.label(class: "check_box"){ck.check_box(class: "ck") + ck.text} %>
         <% end %>
+        <%= ff.object.result_status.html_safe %>
       <% else %>
         <%= ff.fields_for :answers do |fff| %>
           <% if ff.object.question.is_type? Settings.exam.question_type.text %>
@@ -18,6 +19,7 @@
                 <%= rb.label(class: "radio"){rb.radio_button + rb.text} %>
             <% end %>
           <% end %>
+          <%= fff.object.result.result_status.html_safe %>
         <% end %>
       <% end %>
       <br/>

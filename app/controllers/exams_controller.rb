@@ -1,6 +1,7 @@
 class ExamsController < ApplicationController
   before_action :authenticate_user!
   load_and_authorize_resource
+  before_action :correct_user?, only: [:show, :update]
 
   def index
     @exam = Exam.new
@@ -47,5 +48,9 @@ class ExamsController < ApplicationController
   def exam_params
     params.require(:exam).permit :subject_id,
       results_attributes: [:id, option_ids: [], answers_attributes: [:id, :content, :option_id]]
+  end
+
+  def correct_user?
+    redirect_to root_path unless current_user == @exam.user
   end
 end

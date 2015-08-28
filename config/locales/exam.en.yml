@@ -5,6 +5,8 @@ en:
       select_subject: "Select Subject"
       time_remain: "Time remain:"
       score_inform: "Thanks you for joining this Testing. You get %{score}/%{total} [To:%{to_id}] %{user_name}"
+      exam_result: "Exam result : "
+      exam_date: "Exam date : "
     header:
       created_date: "Created Date"
       subject: "Subject"

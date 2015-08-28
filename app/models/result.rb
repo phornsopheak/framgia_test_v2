@@ -12,4 +12,11 @@ class Result < ActiveRecord::Base
   def create_answers
     answers.create unless question.is_type? Settings.exam.question_type.multiple_choice
   end
+
+  def result_status
+    if exam.checked?
+      status = correct? ? I18n.t("questions.labels.correct") : I18n.t("questions.labels.wrong")
+    end
+    status ||= ""
+  end
 end

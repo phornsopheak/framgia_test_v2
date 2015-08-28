@@ -3,6 +3,7 @@ en:
     title:
       question: "Question"
       questions: "Questions"
+      new_question: "New question"
       stt: "STT"
       subject: "Subject"
       state: "State"
@@ -24,3 +25,6 @@ en:
       update_question: "Update"
       edit: "Edit"
       delete: "Delete"
+    labels:
+      correct: "<p class='label label-primary'>Correct answer</p>"
+      wrong: "<p class='label label-danger'>Wrong answer</p>"
