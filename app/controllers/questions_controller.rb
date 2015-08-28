@@ -31,6 +31,8 @@ class QuestionsController < ApplicationController
   end
 
   def update
+    params[:question][:state] = :waiting if @question.rejected? && !current_user.admin?
+
     if @question.update_attributes question_params
       redirect_to user_questions_path(current_user), notice: flash_message("updated")
     else
