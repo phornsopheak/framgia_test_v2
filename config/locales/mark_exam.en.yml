@@ -1,0 +1,12 @@
+en:
+  admin:
+    actions:
+      mark_exam:
+        menu: "Mark"
+        title: "Mark Exam"
+        breadcrumb: "Mark"
+    buttons:
+      submit: "Submit"
+    labels:
+      total_score: "Score: %{score}/%{total}"
+      check_correct: "Correct"

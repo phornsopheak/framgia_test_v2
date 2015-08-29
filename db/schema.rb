@@ -49,7 +49,7 @@ ActiveRecord::Schema.define(version: 20150825052210) do
 
   create_table "questions", force: :cascade do |t|
     t.text     "content",       limit: 65535
-    t.string   "question_type", limit: 255
+    t.integer  "question_type", limit: 4
     t.integer  "state",         limit: 4,     default: 0
     t.integer  "subject_id",    limit: 4
     t.integer  "user_id",       limit: 4

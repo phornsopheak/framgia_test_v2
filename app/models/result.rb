@@ -10,7 +10,7 @@ class Result < ActiveRecord::Base
   accepts_nested_attributes_for :answers
 
   def create_answers
-    answers.create unless question.is_type? Settings.exam.question_type.multiple_choice
+    answers.create unless question.multiple_choice?
   end
 
   def result_status

@@ -1,0 +1,32 @@
+/*
+*= require_self .
+*/
+
+.score-label {
+  font-weight: bold;
+  font-style: italic;
+  font-size: medium;
+}
+
+.option_text {
+  width: 100%;
+  height: 70px;
+}
+
+.btn-submit {
+  margin: 10px;
+}
+
+.radio {
+    padding-left: 20px;
+    font-weight: normal;
+  }
+
+.check_box {
+  font-weight: normal;
+  display: block;
+
+  .ck {
+    margin-right: 5px;
+  }
+}

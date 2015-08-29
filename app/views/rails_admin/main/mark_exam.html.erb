@@ -1,0 +1,8 @@
+<div class="row">
+  <div class="col-md-8">
+    <p class="score-label">
+      <%= t("admin.labels.total_score", score: object.score,
+        total: object.subject.number_of_question) %></p>
+    <%= render "mark_exam_form", object: object %>
+  </div>
+</div>
