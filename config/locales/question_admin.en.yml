@@ -8,3 +8,15 @@ en:
         content: "Content"
         type: "Question Type"
         actions: "Actions"
+      edit_question:
+        menu: 'Edit'
+        title: 'Edit question for %{object_label}'
+        breadcrumb: 'Question'
+      create_question:
+        menu: 'Add new'
+        title: 'Add new question'
+        breadcrumb: 'Add new question'
+      show_question:
+        title: "Details for %{object_label}"
+        menu: "Show"
+        breadcrumb: "%{object_label}"

@@ -46,5 +46,7 @@ en:
       invalid: "There is something wrong. Please try again"
       question_accepted: "Question has been accepted"
       question_rejected: "Question has been rejected"
+      create_question: "Question was created successfully"
+      update_question: "Question was updated successfully"
   dialogs:
     delete_dialog: "Are you sure?"

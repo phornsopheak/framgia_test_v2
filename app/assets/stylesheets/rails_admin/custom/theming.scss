@@ -2,6 +2,10 @@
 *= require_self .
 */
 
+a:hover {
+  text-decoration: none;
+}
+
 .score-label {
   font-weight: bold;
   font-style: italic;
@@ -28,5 +32,32 @@
 
   .ck {
     margin-right: 5px;
+  }
+}
+
+
+#question {
+  .space-top {
+    padding-top: 10px;
+  }
+
+  .space-top-submit {
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+
+  .button {
+   border-radius: 0px;
+    width: 20%;
+  }
+
+  table#table-show {
+    border-collapse:separate;
+    border-spacing:0 20px;
+
+    table#table-show-render {
+      border-collapse:separate;
+      border-spacing:0 10px;
+    }
   }
 }
