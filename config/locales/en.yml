@@ -48,5 +48,6 @@ en:
       question_rejected: "Question has been rejected"
       create_question: "Question was created successfully"
       update_question: "Question was updated successfully"
+      exam_create_reject: "%{subject} is in progress. Please complete this before start new one."
   dialogs:
     delete_dialog: "Are you sure?"

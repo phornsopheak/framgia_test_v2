@@ -22,11 +22,15 @@ class ExamsController < ApplicationController
   def create
     @exam = current_user.exams.build exam_params
     if @exam.save
-      flash[:notice] = flash_message("created")
+      flash[:notice] = flash_message "created"
+      redirect_to exams_path
     else
-      flash[:alert] = flash_message("not_created")
+      flash.now[:alert] = t "flashs.messages.exam_create_reject", subject: @exam.subject.name
+      @exams = Exam.select_exam_not_finish(current_user.id).page params[:page]
+      @exam = Exam.new
+      @subjects = Subject.order :name
+      render "index"
     end
-    redirect_to exams_path
   end
 
   def update

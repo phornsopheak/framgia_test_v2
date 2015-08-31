@@ -9,11 +9,15 @@ class Exam < ActiveRecord::Base
   has_many :questions, through: :results
   has_many :results
 
+  validate :subject_must_finish, on: :create
+
   accepts_nested_attributes_for :results
 
   scope :select_random_question, ->subject{subject.questions
     .limit(subject.number_of_question)
     .order("RAND()")}
+
+  scope :select_exam_not_finish, ->user_id{where user_id: user_id, status: [0, 1]}
 
   def create_result subject
     question_ids = Exam.select_random_question(subject).pluck :id
@@ -50,5 +54,11 @@ class Exam < ActiveRecord::Base
 
   def calculate_score
     results.where(correct: true).count
+  end
+
+  def subject_must_finish
+    if Exam.select_exam_not_finish(user_id).count > 0
+      errors.add :status, I18n.t("exam.errors.invalid")
+    end
   end
 end

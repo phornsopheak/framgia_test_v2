@@ -20,3 +20,5 @@ en:
       start: "Start"
       create_exam: "Create Exam"
       submit: "Submit"
+    errors:
+      invalid: "Exam is in progress"
