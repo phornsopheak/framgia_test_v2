@@ -9,7 +9,6 @@ gem "jquery-rails"
 gem "turbolinks"
 
 gem "devise"
-gem "rails_admin"
 gem "kaminari"
 gem "bootstrap-kaminari-views"
 gem "twitter-bootstrap-rails", ">= 2.0.3"
@@ -19,6 +18,7 @@ gem "carrierwave"
 gem "bootstrap-sass"
 gem "jquery-countdown-rails"
 gem "chatwork"
+gem "rails_admin"
 group :production do
   gem "unicorn"
 end
