@@ -1,0 +1,40 @@
+<div id="question" class="row">
+  <div class="col-md-8 col-md-offset-2">
+    <table id="table-show" width="100%">
+      <tr>
+        <td width="30%"><b><%= t "questions.title.content" %></b></td>
+        <td><%= object.content %></td>
+      </tr>
+      <tr>
+        <td><b><%= t "questions.title.option" %></b></td>
+        <td>
+          <table id="table-show-render" width="100%">
+            <%= render partial: "option_answer", collection: @option_answers %>
+          </table>
+        </td>
+      </tr>
+      <tr>
+        <td><b><%= t "questions.title.subject" %></b></td>
+        <td><%= object.subject.name %></td>
+      </tr>
+      <tr>
+        <td><b><%= t "questions.title.question_type" %></b></td>
+        <td><%= object.question_type.capitalize %></td>
+      </tr>
+      <tr>
+        <td><b><%= t "questions.title.state" %></b></td>
+        <td>
+          <% if object.accepted? %>
+            <div class="state-label label label-primary">
+          <% elsif object.waiting? %>
+            <div class="state-label label label-warning">
+          <% else %>
+            <div class="state-label label label-danger">
+          <% end %>
+          <%= object.state.capitalize %>
+          </div>
+        </td>
+      </tr>
+    </table>
+  </div>
+</div>

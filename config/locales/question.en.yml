@@ -16,6 +16,7 @@ en:
     suggest_question: "Suggest Question"
     suggested_question: "Suggested Question"
     features:
+      add_question: "Add"
       line: "-"
       suggest: "Suggest"
       remove: "Remove"
@@ -25,6 +26,8 @@ en:
       update_question: "Update"
       edit: "Edit"
       delete: "Delete"
+      correct_answer: "Correct"
+      wrong_answer: "Worng"
     labels:
       correct: "<p class='label label-primary'>Correct answer</p>"
       wrong: "<p class='label label-danger'>Wrong answer</p>"
