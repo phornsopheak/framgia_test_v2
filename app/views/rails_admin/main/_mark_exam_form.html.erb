@@ -20,8 +20,11 @@
       <% else %>
         <%= ff.fields_for :answers do |fff| %>
           <% if ff.object.question.text? %>
-            <%= fff.text_area :content, readonly: true, class: "form-control" %>
-            <%= ff.check_box :correct %> <%= t "admin.labels.check_correct" %>
+            <%= fff.text_area :content, readonly: true, class: "form-control option_text" %>
+            <%= ff.check_box :correct %> <%= t "admin.labels.check_correct" %><br/>
+            <i><%= t "admin.labels.hint" %></i>
+            <%= render partial: "answer_text",
+              collection: ff.object.question.options, as: :option %>
           <% else %>
             <%= fff.collection_radio_buttons :option_id, ff.object.question.options,
               :id, :content, {}, {disabled: true} do |rb| %>
