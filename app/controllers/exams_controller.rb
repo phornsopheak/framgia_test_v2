@@ -15,7 +15,7 @@ class ExamsController < ApplicationController
       @exam.create_result @subject
       @exam.update_attribute :status, Settings.status.testing
     end
-    @duration = @subject.duration * 60 - (Time.zone.now -
+    @duration = @exam.unchecked? ? 0 : @subject.duration * 60 - (Time.zone.now -
       @exam.results.first.created_at).to_i
   end
 
@@ -35,7 +35,7 @@ class ExamsController < ApplicationController
 
   def update
     @exam.update_attributes time: @exam.spent_time
-    if @exam.time_out?
+    if @exam.time_out? || params[:commit] == Settings.exam.state.finish
       @exam.update_attributes status: Settings.status.unchecked
     end
 

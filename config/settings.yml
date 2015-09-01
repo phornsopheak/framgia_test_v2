@@ -4,6 +4,8 @@ defaults: &defaults
       single_choice: "single choice"
       multiple_choice: "multiple choice"
       text: "text"
+    state:
+      finish: "Finish"
   status:
     start: "start"
     testing: "testing"

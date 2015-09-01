@@ -32,3 +32,4 @@ en:
     labels:
       correct: "<p class='label label-primary'>Correct answer</p>"
       wrong: "<p class='label label-danger'>Wrong answer</p>"
+      warning_finish_exam: "Are you sure to finish your exam ?\nYou can't change your answers after you click button OK."
