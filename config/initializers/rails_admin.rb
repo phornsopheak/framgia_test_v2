@@ -1,5 +1,3 @@
-require Rails.root.join("lib", "rails_admin", "request_question.rb")
-RailsAdmin::Config::Actions.register(RailsAdmin::Config::Actions::RequestQuestion)
 require Rails.root.join("lib", "rails_admin", "mark_exam.rb")
 RailsAdmin::Config::Actions.register(RailsAdmin::Config::Actions::MarkExam)
 require Rails.root.join("lib", "rails_admin", "edit_question.rb")
@@ -43,7 +41,6 @@ RailsAdmin.config do |config|
     show_in_app do
       except User
     end
-    request_question
   end
   config.excluded_models = ["Answer", "Option", "Result"]
 end
