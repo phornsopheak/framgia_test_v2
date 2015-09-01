@@ -7,6 +7,7 @@ module RailsAdminQuestion
         scopes [nil, :systems, :suggestion, :waiting, :rejected]
         field :content
         field :subject
+        field :question_type
         field :user
         field :created_at
       end
