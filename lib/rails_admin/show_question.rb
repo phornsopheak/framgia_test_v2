@@ -38,9 +38,9 @@ module RailsAdmin
         register_instance_option :controller do
           proc do
             @option_answers = object.options
-            respond_to do |format|
-              format.json { render json: @object }
-              format.html { render @action.template_name }
+            if request.patch?
+              object.update_attributes state: params[:state]
+              redirect_to back_or_index, notice: flash_message("question_#{object.state}")
             end
           end
         end

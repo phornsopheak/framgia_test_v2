@@ -36,5 +36,15 @@
         </td>
       </tr>
     </table>
+    <% unless object.accepted? %>
+      <span>
+        <%= link_to t("questions.confirm_question"), show_question_path("question", object, state: :accepted), method: "patch", class: "btn btn-primary pull-right" %>
+      </span>
+      <% if object.waiting? %>
+        <span>
+          <%= link_to t("questions.reject_question"), show_question_path("question", object, state: :rejected), method: "patch", class: "btn btn-danger pull-left" %>
+        </span>
+      <% end %>
+    <% end %>
   </div>
 </div>

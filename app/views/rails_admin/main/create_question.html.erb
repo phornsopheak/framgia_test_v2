@@ -5,6 +5,7 @@
       <%= f.label :subject, class: "space-top" %>
       <%= f.collection_select :subject_id, @subjects, :id, :name, {}, class: "form-control" %>
       <%= f.hidden_field :user_id, value: current_user.id %>
+      <%= f.hidden_field :state, value: :accepted %>
       <%= f.label :content, class: "space-top" %>
       <%= f.text_area :content, class: "form-control" %>
       <%= f.label :question_type, class: "space-top" %>
