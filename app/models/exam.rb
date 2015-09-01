@@ -27,7 +27,7 @@ class Exam < ActiveRecord::Base
   def time_out?
     if results.count > 0
       created_time = results.first.created_at
-      Time.zone.now > created_time + subject.duration.minutes
+      (Time.zone.now > created_time + subject.duration.minutes) || unchecked?
     end
   end
 
