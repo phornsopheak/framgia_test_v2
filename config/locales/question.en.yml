@@ -3,6 +3,7 @@ en:
     title:
       question: "Question"
       questions: "Questions"
+      contribute_question: "Contribute questions"
       new_question: "New question"
       stt: "STT"
       subject: "Subject"
@@ -27,7 +28,7 @@ en:
       edit: "Edit"
       delete: "Delete"
       correct_answer: "Correct"
-      wrong_answer: "Worng"
+      wrong_answer: "Wrong"
     labels:
       correct: "<p class='label label-primary'>Correct answer</p>"
       wrong: "<p class='label label-danger'>Wrong answer</p>"

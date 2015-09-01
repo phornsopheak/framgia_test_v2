@@ -6,6 +6,7 @@ class Ability
 
     if user.admin?
       can :manage, :all
+      can :mark_exam, status: :unchecked
     else
       can :read, :all
       can :create, [Question, Exam]
