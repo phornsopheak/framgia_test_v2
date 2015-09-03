@@ -11,9 +11,9 @@ class ExamsController < ApplicationController
 
   def show
     @subject = @exam.subject
-    if @exam.exam_status? Settings.status.start
+    if @exam.start?
       @exam.create_result @subject
-      @exam.update_attribute :status, Settings.status.testing
+      @exam.update_attribute :status, :testing
     end
     @duration = @exam.duration
   end
@@ -35,7 +35,7 @@ class ExamsController < ApplicationController
   def update
     @exam.update_attributes time: @exam.spent_time
     if @exam.time_out? || params[:commit] == Settings.exam.state.finish
-      @exam.update_attributes status: Settings.status.unchecked
+      @exam.update_attributes status: :unchecked
     end
 
     if @exam.update_attributes exam_params
