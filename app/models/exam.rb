@@ -14,6 +14,7 @@ class Exam < ActiveRecord::Base
   accepts_nested_attributes_for :results
 
   scope :select_random_question, ->subject{subject.questions
+    .where(active: 1)
     .limit(subject.number_of_question)
     .order("RAND()")}
 
@@ -31,17 +32,13 @@ class Exam < ActiveRecord::Base
     end
   end
 
-  def exam_status? exam_status
-    exam_status == status
-  end
-
   def spent_time
     interval = Time.zone.now - results.first.created_at
     time = interval > subject.duration * 60 ? subject.duration * 60 : interval
   end
 
   def update_status_exam
-    update_attribute :status, Settings.status.unchecked  if time_out? && exam_status?(Settings.status.testing)
+    update_attribute :status, :unchecked  if time_out? && testing?
   end
 
   def send_score_to_chatwork user
@@ -65,5 +62,9 @@ class Exam < ActiveRecord::Base
   def duration
     unchecked? ||checked? ? 0 : subject.duration * 60 - (Time.zone.now -
       results.first.created_at).to_i
+  end
+
+  def score_exam
+    "#{score}/#{subject.number_of_question}"
   end
 end

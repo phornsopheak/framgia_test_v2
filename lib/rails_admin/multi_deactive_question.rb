@@ -24,7 +24,7 @@ module RailsAdmin
             elsif request.patch?
               @questions = Question.where id: params[:bulk_ids]
               @questions.update_all active: 0
-              redirect_to back_or_index, alert: flash_message("multi_deactive_question")
+              redirect_to back_or_index, notice: flash_message("multi_deactive_question")
             end
           end
         end

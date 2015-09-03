@@ -7,7 +7,9 @@ module RailsAdminExam
         field :id
         field :subject
         field :status
-        field :score
+        field :score_exam do
+          label "Score"
+        end
         field :time
         field :user
         field :created_at

@@ -54,5 +54,6 @@ en:
       multi_active_question: "Questions was active successfully!"
       multi_deactive_question: "Questions was deactive successfully!"
       questions_cancel: "Selected Questions was canceled to update successfully!"
+      chatwork_api_key_confirm: "Please fill in your Chatwork API Key."
   dialogs:
     delete_dialog: "Are you sure?"

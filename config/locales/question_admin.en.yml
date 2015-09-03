@@ -23,7 +23,7 @@ en:
       active_question:
         menu: "Active"
       deactive_question:
-        menu: "Dective"
+        menu: "Deactive"
       multi_active_question:
         title: "Active %{model_label_plural}"
         menu: "Multiple Active"

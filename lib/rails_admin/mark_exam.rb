@@ -43,13 +43,14 @@ module RailsAdmin
               else
                 render action: @action.template_name
               end
+
             elsif request.post?
               exam_params = params.require(:exam).permit(results_attributes: [:id, :correct])
               if object.update_attributes exam_params
                 object.update_attributes score: object.calculate_score,
                 status: :checked
 
-                object.send_score_to_chatwork current_user
+                object.send_score_to_chatwork current_user if current_user.chatwork_api_key?
 
                 flash[:notice] = t "flashs.messages.submit_success"
               else
