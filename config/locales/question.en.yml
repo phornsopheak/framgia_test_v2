@@ -14,6 +14,7 @@ en:
       content: "Content"
       option: "Option"
       question_type: "Question type"
+      active: "Active"
     suggest_question: "Suggest Question"
     suggested_question: "Suggested Question"
     features:
@@ -38,3 +39,5 @@ en:
       question_change: "Question #%{question_id}."
       multi_active_question: "The following Questions will be changed to active :"
       multi_deactive_question: "The following Questions will be changed to deactive :"
+      question_active: "<p class='label label-success'>✓</p>"
+      question_deactive: "<p class='label label-danger'>✘</p>"

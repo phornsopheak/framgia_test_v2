@@ -47,8 +47,16 @@ a:hover {
   }
 
   .button {
-   border-radius: 0px;
+    border-radius: 0px;
     width: 20%;
+  }
+
+  .col-config {
+    padding: 10px 0px 0px 0px;
+  }
+
+  .col-config-box {
+    padding: 10px 0px 0px 0px;
   }
 
   table#table-show {
@@ -70,3 +78,8 @@ a:hover {
 .btn-margin {
   margin-bottom: 10px;
 }
+
+.button {
+    border-radius: 0px;
+    width: 20%;
+  }

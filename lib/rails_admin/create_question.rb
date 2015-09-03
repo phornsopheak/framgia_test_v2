@@ -28,7 +28,7 @@ module RailsAdmin
               @subjects = Subject.all
             elsif request.post?
               question_params = params.require(:question).permit :content, :subject_id, :user_id,
-                :state, :question_type, options_attributes: [:id, :content, :correct, :_destroy]
+                :state, :question_type, :active, options_attributes: [:id, :content, :correct, :_destroy]
               @object = @abstract_model.new question_params
               if @object.save
                 redirect_to show_question_path(Question, @object), notice: flash_message("create_question")

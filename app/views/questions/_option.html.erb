@@ -1,3 +1,14 @@
-<%= t "questions.features.line" %>
-<%= option.content %>
-</br>
+<tr>
+  <% unless @question.text? %>
+    <td width="15%">
+      <% if option.correct? %>
+        <span class="label label-primary"><%= t "questions.features.correct_answer" %></span>
+      <% else %>
+        <span class="label label-danger"><%= t "questions.features.wrong_answer" %></span>
+      <% end %>
+    </td>
+  <% end %>
+  <td>
+    <%= option.content %>
+  </td>
+</tr>

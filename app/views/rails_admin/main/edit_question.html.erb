@@ -6,6 +6,14 @@
       <%= f.collection_select :subject_id, Subject.all, :id, :name, {}, class: "form-control" %>
       <%= f.label :content, class: "space-top" %>
       <%= f.text_area :content, class: "form-control" %>
+      <div class="col-md-12 col-config" >
+        <div class="col-md-3 col-config">
+          <%= f.label :active %>
+        </div>
+        <div class="col-md-9 col-config-box">
+          <%= f.check_box :active, {}, :active, :deactive %>
+        </div>
+      </div>
       <%= f.label :question_type, class: "space-top" %>
       <span class="question_type_text"><%= object.question_type.capitalize %></span>
       <div class="space-top">

@@ -8,6 +8,14 @@
       <%= f.hidden_field :state, value: :accepted %>
       <%= f.label :content, class: "space-top" %>
       <%= f.text_area :content, class: "form-control" %>
+      <div class="col-md-12 col-config" >
+        <div class="col-md-3 col-config">
+          <%= f.label :active %>
+        </div>
+        <div class="col-md-9 col-config-box">
+          <%= f.check_box :active, {}, :active, :deactive %>
+        </div>
+      </div>
       <%= f.label :question_type, class: "space-top" %>
       <%= f.collection_select :question_type, Settings.exam.question_type, :first, :last, {}, class: "form-control width-question-type"  %>
       <div class="space-top">

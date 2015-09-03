@@ -26,7 +26,7 @@
     <% end %>
   </ol>
   <% if false == state %>
-    <%= f.submit t("exam.buttons.submit"), class: "btn btn-primary btn-submit" %>
+    <%= f.submit t("exam.buttons.submit"), class: "btn btn-primary btn-submit submit-time-out" %>
     <%= f.submit t("exam.buttons.finish"),
       class: "btn btn-danger btn-submit pull-right", id: "btn-finish",
       data: { confirm: t("questions.labels.warning_finish_exam") } %>

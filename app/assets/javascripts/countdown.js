@@ -4,8 +4,8 @@ var countdown = function() {
     format: "HMS",
     onExpiry: function() {
       alert("Your exam is time out. We are going to submit your test automatically");
-      $(".btn-submit").trigger("click");
-      $(".btn-submit").hidden();
+      $(".submit-time-out").trigger("click");
+      $(".submit-time-out").hidden();
     }
   });
 }

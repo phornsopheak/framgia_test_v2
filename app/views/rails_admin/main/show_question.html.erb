@@ -22,6 +22,10 @@
         <td><%= object.question_type.capitalize %></td>
       </tr>
       <tr>
+        <td><b><%= t "questions.title.active" %></b></td>
+        <td><%= object.active? ? t("questions.labels.question_active").html_safe : t("questions.labels.question_deactive").html_safe %></td>
+      </tr>
+      <tr>
         <td><b><%= t "questions.title.state" %></b></td>
         <td>
           <% if object.accepted? %>

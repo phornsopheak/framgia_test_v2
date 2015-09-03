@@ -9,7 +9,9 @@ module RailsAdminQuestion
         field :subject
         field :question_type
         field :user
-        field :active
+        field :active_question do
+          label "Active"
+        end
         field :created_at
       end
     end
