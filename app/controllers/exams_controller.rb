@@ -15,8 +15,7 @@ class ExamsController < ApplicationController
       @exam.create_result @subject
       @exam.update_attribute :status, Settings.status.testing
     end
-    @duration = @exam.unchecked? ? 0 : @subject.duration * 60 - (Time.zone.now -
-      @exam.results.first.created_at).to_i
+    @duration = @exam.duration
   end
 
   def create

@@ -9,6 +9,7 @@ module RailsAdminUser
         field :password
         field :password_confirmation
         field :chatwork_id
+        field :chatwork_api_key
       end
 
       list do

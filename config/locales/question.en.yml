@@ -29,7 +29,12 @@ en:
       delete: "Delete"
       correct_answer: "Correct"
       wrong_answer: "Wrong"
+      cancel: "Cancel"
+      sure: "Yes, I'm sure"
     labels:
       correct: "<p class='label label-primary'>Correct answer</p>"
       wrong: "<p class='label label-danger'>Wrong answer</p>"
       warning_finish_exam: "Are you sure to finish your exam ?\nYou can't change your answers after you click button OK."
+      question_change: "Question #%{question_id}."
+      multi_active_question: "The following Questions will be changed to active :"
+      multi_deactive_question: "The following Questions will be changed to deactive :"

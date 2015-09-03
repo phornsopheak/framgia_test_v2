@@ -51,6 +51,7 @@ ActiveRecord::Schema.define(version: 20150825052210) do
     t.text     "content",       limit: 65535
     t.integer  "question_type", limit: 4
     t.integer  "state",         limit: 4,     default: 0
+    t.integer  "active",        limit: 4,     default: 0
     t.integer  "subject_id",    limit: 4
     t.integer  "user_id",       limit: 4
     t.datetime "created_at",                              null: false

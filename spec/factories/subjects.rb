@@ -1,8 +1,8 @@
 FactoryGirl.define do
   factory :subject do
     name {Faker::Name.title}
-    duration {Faker::Number.between(60, 120)}
-    number_of_question {Faker::Number.between(20, 30)}
+    duration {Faker::Number.between(1, 10)}
+    number_of_question {Faker::Number.between(10, 20)}
     chatwork_room_id "36496057"
 
     after(:create) do |subject|

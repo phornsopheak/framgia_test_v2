@@ -27,7 +27,7 @@ class Exam < ActiveRecord::Base
   def time_out?
     if results.count > 0
       created_time = results.first.created_at
-      (Time.zone.now > created_time + subject.duration.minutes) || unchecked?
+      (Time.zone.now > created_time + subject.duration.minutes) || unchecked? || checked?
     end
   end
 
@@ -60,5 +60,10 @@ class Exam < ActiveRecord::Base
     if Exam.select_exam_not_finish(user_id).count > 0
       errors.add :status, I18n.t("exam.errors.invalid")
     end
+  end
+
+  def duration
+    unchecked? ||checked? ? 0 : subject.duration * 60 - (Time.zone.now -
+      results.first.created_at).to_i
   end
 end
