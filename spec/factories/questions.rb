@@ -3,6 +3,7 @@ FactoryGirl.define do
     content {Faker::Lorem.sentence}
     question_type {Faker::Number.between(0, 2)}
     state 1
+    active 1
     user {User.all.sample}
 
     after(:create) do |question|

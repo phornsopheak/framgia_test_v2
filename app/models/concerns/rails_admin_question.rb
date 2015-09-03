@@ -9,6 +9,7 @@ module RailsAdminQuestion
         field :subject
         field :question_type
         field :user
+        field :active
         field :created_at
       end
     end

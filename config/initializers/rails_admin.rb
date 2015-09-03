@@ -6,7 +6,14 @@ require Rails.root.join("lib", "rails_admin", "create_question.rb")
 RailsAdmin::Config::Actions.register(RailsAdmin::Config::Actions::CreateQuestion)
 require Rails.root.join("lib", "rails_admin", "show_question.rb")
 RailsAdmin::Config::Actions.register(RailsAdmin::Config::Actions::ShowQuestion)
-
+require Rails.root.join("lib", "rails_admin", "active_question.rb")
+RailsAdmin::Config::Actions.register(RailsAdmin::Config::Actions::ActiveQuestion)
+require Rails.root.join("lib", "rails_admin", "deactive_question.rb")
+RailsAdmin::Config::Actions.register(RailsAdmin::Config::Actions::DeactiveQuestion)
+require Rails.root.join("lib", "rails_admin", "multi_active_question.rb")
+RailsAdmin::Config::Actions.register(RailsAdmin::Config::Actions::MultiActiveQuestion)
+require Rails.root.join("lib", "rails_admin", "multi_deactive_question.rb")
+RailsAdmin::Config::Actions.register(RailsAdmin::Config::Actions::MultiDeactiveQuestion)
 
 RailsAdmin.config do |config|
   config.authenticate_with do
@@ -28,6 +35,12 @@ RailsAdmin.config do |config|
     end
     export
     bulk_delete
+    multi_active_question do
+      only Question
+    end
+    multi_deactive_question do
+      only Question
+    end
     mark_exam
     show_question
     show do
@@ -38,6 +51,12 @@ RailsAdmin.config do |config|
       except Question
     end
     delete
+    active_question do
+      only Question
+    end
+    deactive_question do
+      only Question
+    end
     show_in_app do
       except User
     end

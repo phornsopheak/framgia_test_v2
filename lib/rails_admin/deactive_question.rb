@@ -1,9 +1,9 @@
 module RailsAdmin
   module Config
     module Actions
-      class EditQuestion < RailsAdmin::Config::Actions::Base
+      class DeactiveQuestion < RailsAdmin::Config::Actions::Base
         register_instance_option :visible? do
-          authorized? && bindings[:object].class == Question
+          authorized?
         end
 
         register_instance_option :member do
@@ -11,11 +11,11 @@ module RailsAdmin
         end
 
         register_instance_option :link_icon do
-          "icon-pencil"
+          "icon-ban-circle"
         end
 
         register_instance_option :pjax? do
-          true
+          false
         end
 
         register_instance_option :http_methods do
@@ -40,15 +40,9 @@ module RailsAdmin
 
         register_instance_option :controller do
           Proc.new do
-            if request.post?
-              question_params = params.require(:question).permit :content, :subject_id, :user_id,
-              :state, :question_type, options_attributes: [:id, :content, :correct, :_destroy]
-              if object.update_attributes question_params
-                redirect_to show_question_path(Question, object), notice: flash_message("update_question")
-              else
-                render "edit_question"
-              end
-            end
+            object.update_attributes active: :active
+            redirect_to :back
+            flash[:notice] = t "flashs.messages.active_question", question_id: object.id
           end
         end
       end

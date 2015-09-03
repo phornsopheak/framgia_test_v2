@@ -20,3 +20,17 @@ en:
         title: "Details for %{object_label}"
         menu: "Show"
         breadcrumb: "%{object_label}"
+      active_question:
+        menu: "Active"
+      deactive_question:
+        menu: "Dective"
+      multi_active_question:
+        title: "Active %{model_label_plural}"
+        menu: "Multiple Active"
+        breadcrumb: "Multiple Active"
+        bulk_link: "Active selected %{model_label_plural}"
+      multi_deactive_question:
+        title: "Deactive %{model_label_plural}"
+        menu: "Multiple dective"
+        breadcrumb: "Multiple dective"
+        bulk_link: "Deactive selected %{model_label_plural}"
