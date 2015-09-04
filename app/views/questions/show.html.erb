@@ -1,14 +1,18 @@
 <div id="question" class="row">
   <div class="col-md-8 col-md-offset-2">
     <h2><b><%= t "questions.title.question" %></b></h2>
-    <table id="table-show">
+    <table id="table-show" width="100%">
       <tr>
         <td width="40%"><b><%= t "questions.title.content" %></b></td>
         <td><%= @question.content %></td>
       </tr>
       <tr>
         <td><b><%= t "questions.title.option" %></b></td>
-        <td><%= render partial: "option", collection: @options %></td>
+        <td>
+          <table id="table-show-render" width="100%">
+            <%= render partial: "option", collection: @options %>
+          </table>
+        </td>
       </tr>
       <tr>
         <td><b><%= t "questions.title.subject" %></b></td>

@@ -16,7 +16,7 @@ module RailsAdmin
           proc do
             if request.post?
               if params[:cancel]
-                redirect_to back_or_index, alert: flash_message("questions_cancel")
+                redirect_to back_or_index, notice: flash_message("questions_cancel")
               else
                 @active_questions = list_entries(@model_config)
                 render @action.template_name

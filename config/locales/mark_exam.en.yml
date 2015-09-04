@@ -8,6 +8,6 @@ en:
     buttons:
       submit: "Submit"
     labels:
-      total_score: "Score: %{score}/%{total}"
+      total_score: "Score: %{score}"
       check_correct: "Correct"
       hint: "Hint:"

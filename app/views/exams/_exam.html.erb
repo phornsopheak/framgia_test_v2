@@ -6,12 +6,12 @@
   <td><%= exam.subject.duration %></td>
   <td><%= exam.subject.number_of_question %></td>
   <td><%= Time.at(exam.time).utc.strftime("%H:%M:%S") %></td>
-  <td><%= exam.score %></td>
+  <td><%= exam.score_exam %></td>
   <td>
     <% if exam.start? %>
-      <%= link_to t("exam.buttons.start"), exam, class: "btn btn-primary" %>
+      <%= link_to t("exam.buttons.start"), exam, class: "btn btn-primary button" %>
     <% else %>
-      <%= link_to t("exam.buttons.view"), exam, class: "btn btn-success" %>
+      <%= link_to t("exam.buttons.view"), exam, class: "btn btn-success button" %>
     <% end %>
   </td>
 </tr>

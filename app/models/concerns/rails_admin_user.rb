@@ -6,6 +6,7 @@ module RailsAdminUser
       edit do
         field :name
         field :email
+        field :admin
         field :password
         field :password_confirmation
         field :chatwork_id

@@ -14,6 +14,7 @@ class Ability
       can :update, :all
       can :show_in_app, :all
       can :show, :all
+      can :read, :all
       can :create_question, Question
       can :mark_exam, Exam do |exam|
         exam.unchecked? || exam.checked?

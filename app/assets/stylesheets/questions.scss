@@ -38,6 +38,11 @@
   table#table-show {
     border-collapse:separate;
     border-spacing:0 20px;
+
+    table#table-show-render {
+      border-collapse:separate;
+      border-spacing:0 10px;
+    }
   }
 
   .question-title {
