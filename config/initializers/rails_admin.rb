@@ -48,7 +48,7 @@ RailsAdmin.config do |config|
     end
     edit_question
     edit do
-      except Question
+      except ["Exam", "Question"]
     end
     delete
     active_question do

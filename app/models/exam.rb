@@ -65,6 +65,15 @@ class Exam < ActiveRecord::Base
   end
 
   def score_exam
-    "#{score}/#{subject.number_of_question}"
+    if score?
+      "#{score}/#{subject.number_of_question}"
+    else
+      "-"
+    end
+
+  end
+
+  def spent_time_format
+    Time.at(time).utc.strftime("%H:%M:%S")
   end
 end
