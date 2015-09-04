@@ -10,7 +10,9 @@ module RailsAdminExam
         field :score_exam do
           label "Score"
         end
-        field :time
+        field :spent_time_format do
+          label "Spent Time"
+        end
         field :user
         field :created_at
       end

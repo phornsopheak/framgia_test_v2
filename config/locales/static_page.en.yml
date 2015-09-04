@@ -1,6 +1,7 @@
 en:
   static_pages:
     home: "Home"
+    admin: "Admin"
     exam: "Exam"
     signin: "Sign in"
     signup: "Sign up"
