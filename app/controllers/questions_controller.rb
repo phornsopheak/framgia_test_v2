@@ -17,7 +17,7 @@ class QuestionsController < ApplicationController
   def create
     @question = current_user.questions.new question_params
     if @question.save
-      redirect_to root_path, notice: flash_message("suggested")
+      redirect_to user_questions_path(current_user), notice: flash_message("suggested")
     else
       render :new
     end

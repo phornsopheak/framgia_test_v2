@@ -7,7 +7,7 @@ class Exam < ActiveRecord::Base
   enum status: [:start, :testing, :checked, :unchecked]
 
   has_many :questions, through: :results
-  has_many :results
+  has_many :results, dependent: :destroy
 
   validate :subject_must_finish, on: :create
 
