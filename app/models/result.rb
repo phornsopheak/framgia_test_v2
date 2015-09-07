@@ -19,4 +19,8 @@ class Result < ActiveRecord::Base
     end
     status ||= ""
   end
+
+  def result_correct_count?
+    Answer.option_correct(id) == Option.count_correct_option(question_id)
+  end
 end

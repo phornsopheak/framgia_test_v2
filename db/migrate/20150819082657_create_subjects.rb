@@ -4,7 +4,6 @@ class CreateSubjects < ActiveRecord::Migration
       t.string :name
       t.integer :number_of_question
       t.integer :duration
-      t.string :chatwork_room_id
 
       t.timestamps null: false
     end

@@ -10,14 +10,16 @@ module RailsAdminUser
         field :password
         field :password_confirmation
         field :chatwork_id
+        field :chatwork_room_id
         field :chatwork_api_key
       end
 
       list do
         field :name
         field :email
-        field :chatwork_api_key
         field :chatwork_id
+        field :chatwork_room_id
+        field :chatwork_api_key
         field :admin
       end
     end

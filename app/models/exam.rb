@@ -9,8 +9,6 @@ class Exam < ActiveRecord::Base
   has_many :questions, through: :results
   has_many :results, dependent: :destroy
 
-  validate :subject_must_finish, on: :create
-
   accepts_nested_attributes_for :results
 
   scope :select_random_question, ->subject{subject.questions
@@ -43,7 +41,7 @@ class Exam < ActiveRecord::Base
 
   def send_score_to_chatwork user
     ChatWork.api_key = user.chatwork_api_key
-    room_id = subject.chatwork_room_id
+    room_id = user.chatwork_room_id
     body = I18n.t("exam.labels.score_inform", score: score, total: subject.number_of_question,
       to_id: user.chatwork_id, user_name: user.name)
     ChatWork::Message.create room_id: room_id, body: body
@@ -51,12 +49,6 @@ class Exam < ActiveRecord::Base
 
   def calculate_score
     results.where(correct: true).count
-  end
-
-  def subject_must_finish
-    if Exam.select_exam_not_finish(user_id).count > 0
-      errors.add :status, I18n.t("exam.errors.invalid")
-    end
   end
 
   def duration
@@ -75,5 +67,9 @@ class Exam < ActiveRecord::Base
 
   def spent_time_format
     Time.at(time).utc.strftime("%H:%M:%S")
+  end
+
+  def column_subject
+    "#{subject.name}"
   end
 end

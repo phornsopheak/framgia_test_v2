@@ -25,10 +25,6 @@ class ExamsController < ApplicationController
       redirect_to exams_path
     else
       flash.now[:alert] = t "flashs.messages.exam_create_reject", subject: @exam.subject.name
-      @exams = Exam.select_exam_not_finish(current_user.id).page params[:page]
-      @exam = Exam.new
-      @subjects = Subject.order :name
-      render "index"
     end
   end
 

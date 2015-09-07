@@ -4,6 +4,11 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   include ApplicationHelper
 
+  rescue_from CanCan::AccessDenied do |exception|
+    flash[:alert] = exception.message
+    current_user.admin? ? redirect_to(dashboard_path) : redirect_to(main_app.root_path)
+  end
+
   protected
   def configure_permitted_parameters
     devise_parameter_sanitizer.for(:sign_up).push :name

@@ -44,13 +44,15 @@ RailsAdmin.config do |config|
     mark_exam
     show_question
     show do
-      except Question
+      except ["Question", "Exam"]
     end
     edit_question
     edit do
       except ["Exam", "Question"]
     end
-    delete
+    delete do
+      except ["Exam", "Question"]
+    end
     active_question do
       only Question
     end
@@ -58,7 +60,7 @@ RailsAdmin.config do |config|
       only Question
     end
     show_in_app do
-      except User
+      except ["User", "Exam"]
     end
   end
   config.excluded_models = ["Answer", "Option", "Result"]

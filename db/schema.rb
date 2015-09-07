@@ -76,7 +76,6 @@ ActiveRecord::Schema.define(version: 20150825052210) do
     t.string   "name",               limit: 255
     t.integer  "number_of_question", limit: 4
     t.integer  "duration",           limit: 4
-    t.string   "chatwork_room_id",   limit: 255
     t.datetime "created_at",                     null: false
     t.datetime "updated_at",                     null: false
   end
@@ -86,6 +85,7 @@ ActiveRecord::Schema.define(version: 20150825052210) do
     t.string   "email",                  limit: 255, default: "",    null: false
     t.string   "chatwork_api_key",       limit: 255
     t.string   "chatwork_id",            limit: 255
+    t.string   "chatwork_room_id",       limit: 255
     t.boolean  "admin",                              default: false
     t.string   "encrypted_password",     limit: 255, default: "",    null: false
     t.string   "reset_password_token",   limit: 255
