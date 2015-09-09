@@ -40,7 +40,7 @@ module RailsAdmin
 
         register_instance_option :controller do
           Proc.new do
-            object.update_attributes active: :active
+            object.update_attributes active: true
             redirect_to :back, notice: t("flashs.messages.active_question", question_id: object.id)
           end
         end

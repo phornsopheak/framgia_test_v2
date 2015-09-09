@@ -5,7 +5,7 @@
       <% if ff.object.question.multiple_choice? %>
         <%= ff.collection_check_boxes :option_ids, ff.object.question.options,
           :id, :content, {}, {disabled: true} do |ck| %>
-            <%= ck.label(class: "check_box"){ck.check_box(class: "ck") + ck.text} %>
+            <%= ck.label(class: "check_box #{"right_color" unless Option.correct_option(ck.value).blank?}"){ck.check_box(class: "ck") + ck.text} %>
         <% end %>
         <% if ff.object.correct.nil? %>
           <% if ff.object.result_correct_count? %>
@@ -32,7 +32,7 @@
           <% else %>
             <%= fff.collection_radio_buttons :option_id, ff.object.question.options,
               :id, :content, {}, {disabled: true} do |rb| %>
-              <%= rb.label(class: "radio"){rb.radio_button + rb.text} %>
+              <%= rb.label(class: "radio #{"right_color" unless Option.correct_option(rb.value).blank?}"){rb.radio_button + rb.text} %>
             <% end %>
             <% if ff.object.correct.nil? %>
               <%= ff.check_box :correct, value: fff.object.is_correct?, checked: fff.object.is_correct? %>

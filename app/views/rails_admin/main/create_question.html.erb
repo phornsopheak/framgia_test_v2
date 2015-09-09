@@ -13,7 +13,7 @@
           <%= f.label :active %>
         </div>
         <div class="col-md-9 col-config-box">
-          <%= f.check_box :active, {}, :active, :deactive %>
+          <%= f.check_box :active %>
         </div>
       </div>
       <%= f.label :question_type, class: "space-top" %>
@@ -26,8 +26,8 @@
          <%= link_to_add_fields t("questions.features.add_option"), f, :options %>
         </div>
       </div>
-      <%= f.submit  t("questions.features.save_question"), class: "btn btn-primary button space-top-submit" %>
-      <%= f.submit  t("questions.features.save_continue"), class: "btn btn-primary button space-top-submit" %>
+      <%= f.submit  t("questions.features.save_question"), class: "btn btn-primary button_save_continue space-top-submit" %>
+      <%= f.submit  t("questions.features.save_continue"), class: "btn btn-primary button_save_continue space-top-submit" %>
     <% end %>
   </div>
 </div>

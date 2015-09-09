@@ -20,7 +20,7 @@ class Ability
         exam.unchecked? || exam.checked?
       end
       can :active_question, Question do |question|
-        question.deactive?
+        !question.active?
       end
       can :edit_question, Question
       can :deactive_question, Question do |question|

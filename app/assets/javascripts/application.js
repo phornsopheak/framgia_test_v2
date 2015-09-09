@@ -24,6 +24,7 @@ $(document).on("ready", function() {
 
   check_question_type();
   check_box_state();
+  check_box_state_edit();
 
   $("#question_question_type").on("change",function() {
     if (this.value === "text"){
@@ -42,9 +43,18 @@ $(document).on("ready", function() {
       }
     }
   });
+
+  if ($("#question_question_type").val() == "text") {
+    $(".remove-button").trigger("click");
+    $(".add-button").trigger("click");
+    $(".add-button").hide();
+    $(".check-box-remove").hide();
+    $(".answer-title").html("Answer");
+  }
 });
 
 $(document).on("page:load page:update", check_box_state);
+$(document).on("page:load page:update", check_box_state_edit);
 
 function remove_fields(link) {
   $(link).prev("input[type=hidden]").val("1");
@@ -81,6 +91,14 @@ function answer_title() {
 function check_box_state() {
   $(".check-box").on("change",function(){
     if ($("#question_question_type").val() === "single_choice"){
+      $(".check-box").not(this).prop("checked", false);
+    }
+  });
+}
+
+function check_box_state_edit() {
+  $(".check-box").on("change",function(){
+    if ($("span.question_type_text").text() === "Single_choice"){
       $(".check-box").not(this).prop("checked", false);
     }
   });

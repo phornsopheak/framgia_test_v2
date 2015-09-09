@@ -21,10 +21,14 @@ a:hover {
   margin: 10px;
 }
 
+.right_color {
+  background-color: #CCFFFF;
+}
+
 .radio {
-    padding-left: 20px;
-    font-weight: normal;
-  }
+  padding-left: 20px;
+  font-weight: normal;
+}
 
 .check_box {
   font-weight: normal;
@@ -34,7 +38,6 @@ a:hover {
     margin-right: 5px;
   }
 }
-
 
 #question {
   .space-top {
@@ -49,6 +52,11 @@ a:hover {
   .button {
     border-radius: 0px;
     width: 20%;
+  }
+
+  .button_save_continue {
+    border-radius: 0px;
+    width: 25%;
   }
 
   .col-config {
