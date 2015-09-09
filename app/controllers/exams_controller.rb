@@ -1,7 +1,9 @@
 class ExamsController < ApplicationController
   before_action :authenticate_user!
   load_and_authorize_resource
+
   before_action :correct_user?, only: [:show, :update]
+  before_action :is_admin
 
   def index
     @exam = Exam.new

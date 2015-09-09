@@ -17,4 +17,10 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.for(:account_update).push :chatwork_id
     devise_parameter_sanitizer.for(:account_update).push :chatwork_api_key
   end
+
+  def is_admin
+    if current_user.admin?
+      redirect_to rails_admin.dashboard_path, alert: t("flashs.messages.authorize")
+    end
+  end
 end

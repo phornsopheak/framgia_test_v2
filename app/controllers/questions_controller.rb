@@ -4,6 +4,7 @@ class QuestionsController < ApplicationController
   load_and_authorize_resource :question, through: :user
 
   before_action :correct_user?
+  before_action :is_admin
   before_action :load_subjects, only: [:new, :edit, :update, :create]
 
   def index
