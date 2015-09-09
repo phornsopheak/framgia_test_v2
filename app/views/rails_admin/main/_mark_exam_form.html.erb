@@ -2,35 +2,44 @@
   <ol>
     <%= f.fields_for :results do |ff| %>
       <li><%= ff.object.question.content %></li>
-      <br/>
       <% if ff.object.question.multiple_choice? %>
         <%= ff.collection_check_boxes :option_ids, ff.object.question.options,
           :id, :content, {}, {disabled: true} do |ck| %>
             <%= ck.label(class: "check_box"){ck.check_box(class: "ck") + ck.text} %>
         <% end %>
-        <% if ff.object.answers.count > 0 %>
-          <% if Answer.not_correct(ff.object.id) > 0 %>
-            <%= ff.hidden_field :correct, value: false %>
+        <% if ff.object.correct.nil? %>
+          <% if ff.object.result_correct_count? %>
+            <% if Answer.not_correct(ff.object.id) > 0 %>
+              <%= ff.check_box :correct, value: false %>
+            <% else %>
+              <%= ff.check_box :correct, value: true, checked: true %>
+            <% end %>
           <% else %>
-            <%= ff.hidden_field :correct, value: true %>
+            <%= ff.check_box :correct, value: false %>
           <% end %>
         <% else %>
-          <%= ff.hidden_field :correct, value: false %>
+          <%= ff.check_box :correct %>
         <% end %>
+        <%= t "admin.labels.check_correct" %></br>
       <% else %>
         <%= ff.fields_for :answers do |fff| %>
           <% if ff.object.question.text? %>
-            <%= fff.text_area :content, readonly: true, class: "form-control option_text" %>
-            <%= ff.check_box :correct %> <%= t "admin.labels.check_correct" %><br/>
-            <i><%= t "admin.labels.hint" %></i>
+            <i><%= t "admin.labels.answer" %></i>
             <%= render partial: "option_text",
-              collection: ff.object.question.options, as: :option %>
+              collection: ff.object.question.options, as: :option %></br>
+            <%= fff.text_area :content, readonly: true, class: "form-control option_text" %>
+            <%= ff.check_box :correct %> <%= t "admin.labels.check_correct" %></br>
           <% else %>
             <%= fff.collection_radio_buttons :option_id, ff.object.question.options,
               :id, :content, {}, {disabled: true} do |rb| %>
               <%= rb.label(class: "radio"){rb.radio_button + rb.text} %>
             <% end %>
-            <%= ff.hidden_field :correct, value: fff.object.is_correct? %>
+            <% if ff.object.correct.nil? %>
+              <%= ff.check_box :correct, value: fff.object.is_correct?, checked: fff.object.is_correct? %>
+            <% else %>
+              <%= ff.check_box :correct  %>
+            <% end %>
+            <%= t "admin.labels.check_correct" %></br>
           <% end %>
         <% end %>
       <% end %>

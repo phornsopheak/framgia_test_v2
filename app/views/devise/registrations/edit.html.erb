@@ -27,6 +27,11 @@
         <%= f.text_field :chatwork_id, class: "form-control item" %>
       </p>
 
+      <p class="field">
+        <%= f.label :chatwork_room_id, t("devise.labels.chatwork_room_id") %>
+        <%= f.text_field :chatwork_room_id, class: "form-control item" %>
+      </p>
+
       <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
         <div><%= t "devise.registrations.waiting_confirmation" %> <%= resource.unconfirmed_email %></div>
       <% end %>

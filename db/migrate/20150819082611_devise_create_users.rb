@@ -5,6 +5,7 @@ class DeviseCreateUsers < ActiveRecord::Migration
       t.string :email,              null: false, default: ""
       t.string :chatwork_api_key
       t.string :chatwork_id
+      t.string :chatwork_room_id
       t.boolean :admin, default: false
       t.string :encrypted_password, null: false, default: ""
       t.string   :reset_password_token

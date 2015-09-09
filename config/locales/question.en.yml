@@ -18,7 +18,8 @@ en:
     suggest_question: "Suggest Question"
     suggested_question: "Suggested Question"
     features:
-      add_question: "Add"
+      save_question: "Save"
+      save_continue: "Save and continue"
       line: "-"
       suggest: "Suggest"
       remove: "Remove"

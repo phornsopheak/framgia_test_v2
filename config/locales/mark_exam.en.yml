@@ -10,4 +10,4 @@ en:
     labels:
       total_score: "Score: %{score}"
       check_correct: "Correct"
-      hint: "Hint:"
+      answer: "Answer : "
