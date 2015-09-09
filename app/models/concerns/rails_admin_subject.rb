@@ -7,14 +7,12 @@ module RailsAdminSubject
         field :name
         field :number_of_question
         field :duration
-        field :chatwork_room_id
       end
 
       list do
         field :name
         field :number_of_question
         field :duration
-        field :chatwork_room_id
         field :created_at
       end
     end

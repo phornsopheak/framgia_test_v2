@@ -3,9 +3,18 @@ $(document).on("ready", function() {
   setTimeout(function() {
     $(".alert-info").fadeOut("normal");
   }, 3000);
+
+  if ($("#question_question_type").val() == "text") {
+    $(".remove-button").trigger("click");
+    $(".add-button").trigger("click");
+    $(".add-button").hide();
+    $(".check-box-remove").hide();
+    $(".answer-title").html("Answer");
+  }
 });
 
 $(document).on("page:load page:update", check_box_state);
+$(document).on("page:load page:update", check_box_state_edit);
 $(document).on("page:update", answer_title);
 $(document).on("page:update", select_question_type);
 $(document).on("page:update", check_question_type);
@@ -68,6 +77,14 @@ function select_question_type() {
       if (this.value === "single_choice") {
         $(".check-box:first").prop("checked", true);
       }
+    }
+  });
+}
+
+function check_box_state_edit() {
+  $(".check-box").on("change",function(){
+    if ($("span.question_type_text").text() === "Single_choice"){
+      $(".check-box").not(this).prop("checked", false);
     }
   });
 }

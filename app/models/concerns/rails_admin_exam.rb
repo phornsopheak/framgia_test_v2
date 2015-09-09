@@ -21,12 +21,10 @@ module RailsAdminExam
         field :mark_exam do
           label ""
           formatted_value do
-            bindings[:view].content_tag(:a, "<p class='label label-primary'><b>Mark</b></p>".html_safe,
-              href: "exam/#{bindings[:object].id}/mark_exam")
-          end
-
-          visible do
-            authorized?
+            if bindings[:object].checked? || bindings[:object].unchecked?
+              bindings[:view].content_tag(:a, "<p class='label label-primary'><b>Mark</b></p>".html_safe,
+                href: "exam/#{bindings[:object].id}/mark_exam")
+            end
           end
         end
         field :show do

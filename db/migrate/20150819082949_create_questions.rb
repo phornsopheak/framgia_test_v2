@@ -4,7 +4,7 @@ class CreateQuestions < ActiveRecord::Migration
       t.text :content
       t.integer :question_type
       t.integer :state, default: 0
-      t.integer :active, default: 0
+      t.boolean :active, default: true
       t.references :subject, index: true, foreign_key: true
       t.references :user, index: true, foreign_key: true
 
