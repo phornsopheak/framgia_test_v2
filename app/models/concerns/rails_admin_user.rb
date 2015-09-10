@@ -10,7 +10,6 @@ module RailsAdminUser
         field :password
         field :password_confirmation
         field :chatwork_id
-        field :chatwork_room_id
         field :chatwork_api_key
       end
 
@@ -27,7 +26,6 @@ module RailsAdminUser
         end
         field :email
         field :chatwork_id
-        field :chatwork_room_id
         field :chatwork_api_key
         field :admin
       end

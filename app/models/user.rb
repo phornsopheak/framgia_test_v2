@@ -8,5 +8,4 @@ class User < ActiveRecord::Base
   has_many :questions
 
   validates :chatwork_id, presence: true
-  validates :chatwork_room_id, presence: true
 end
