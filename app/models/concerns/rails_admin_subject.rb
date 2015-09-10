@@ -7,7 +7,7 @@ module RailsAdminSubject
         field :name
         field :number_of_question
         field :duration do
-          label "Duration(mn)"
+          label "Duration(minute)"
         end
         field :chatwork_room_id
       end
