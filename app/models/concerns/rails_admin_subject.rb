@@ -10,7 +10,13 @@ module RailsAdminSubject
       end
 
       list do
-        field :name
+        field :subject_name do
+          label "Name"
+          formatted_value do
+            bindings[:view].content_tag(:a, "#{bindings[:object].name}",
+              href: "subject/#{bindings[:object].id}")
+          end
+        end
         field :number_of_question
         field :duration
         field :created_at

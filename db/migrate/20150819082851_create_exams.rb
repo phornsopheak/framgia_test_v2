@@ -1,7 +1,7 @@
 class CreateExams < ActiveRecord::Migration
   def change
     create_table :exams do |t|
-      t.integer :score, default: 0
+      t.integer :score
       t.integer :status, default: 0
       t.integer :time, default: 0
       t.references :user, index: true, foreign_key: true

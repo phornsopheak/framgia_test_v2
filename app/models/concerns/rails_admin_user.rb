@@ -15,7 +15,16 @@ module RailsAdminUser
       end
 
       list do
-        field :name
+        field :user_name do
+          label "Name"
+          formatted_value do
+            bindings[:view].content_tag(:a, "#{bindings[:object].name}",
+              href: "user/#{bindings[:object].id}")
+          end
+        end
+        field :name do
+          hide
+        end
         field :email
         field :chatwork_id
         field :chatwork_room_id
