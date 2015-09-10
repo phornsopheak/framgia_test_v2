@@ -6,7 +6,6 @@ FactoryGirl.define do
     sequence(:email) {|n| "test-#{n}@fts.com"}
     chatwork_id "1308655"
     admin false
-    chatwork_room_id "30982777"
 
     after(:create) do |user|
       FactoryGirl.create :exam, user: user

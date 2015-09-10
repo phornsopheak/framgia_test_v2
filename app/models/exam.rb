@@ -41,7 +41,7 @@ class Exam < ActiveRecord::Base
 
   def send_score_to_chatwork user
     ChatWork.api_key = user.chatwork_api_key
-    room_id = user.chatwork_room_id
+    room_id = subject.chatwork_room_id
     body = I18n.t("exam.labels.score_inform", subject: subject.name, score: score, total: subject.number_of_question,
       to_id: user.chatwork_id, user_name: user.name)
     ChatWork::Message.create room_id: room_id, body: body
