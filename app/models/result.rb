@@ -2,7 +2,7 @@ class Result < ActiveRecord::Base
   belongs_to :exam
   belongs_to :question
 
-  has_many :answers
+  has_many :answers, dependent: :destroy
   has_many :options, through: :answers
 
   after_create :create_answers
