@@ -25,7 +25,7 @@ ActiveRecord::Schema.define(version: 20150825052210) do
   add_index "answers", ["result_id"], name: "index_answers_on_result_id", using: :btree
 
   create_table "exams", force: :cascade do |t|
-    t.integer  "score",      limit: 4, default: 0
+    t.integer  "score",      limit: 4
     t.integer  "status",     limit: 4, default: 0
     t.integer  "time",       limit: 4, default: 0
     t.integer  "user_id",    limit: 4

@@ -57,12 +57,7 @@ class Exam < ActiveRecord::Base
   end
 
   def score_exam
-    if score?
-      "#{score}/#{subject.number_of_question}"
-    else
-      "-"
-    end
-
+    "#{score}/#{subject.number_of_question}" unless score.nil?
   end
 
   def spent_time_format

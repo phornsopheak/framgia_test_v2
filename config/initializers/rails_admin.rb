@@ -44,13 +44,11 @@ RailsAdmin.config do |config|
     mark_exam
     show_question
     show do
-      except ["Question", "Exam"]
+      except "Question"
+      hide
     end
     edit_question
     edit do
-      except ["Exam", "Question"]
-    end
-    delete do
       except ["Exam", "Question"]
     end
     active_question do
