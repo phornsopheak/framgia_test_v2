@@ -45,7 +45,6 @@ RailsAdmin.config do |config|
     show_question
     show do
       except "Question"
-      hide
     end
     edit_question
     edit do

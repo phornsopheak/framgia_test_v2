@@ -40,15 +40,16 @@ module RailsAdminExam
         field :status do
           pretty_value do
             status = bindings[:object]
-            if status.start?
-              class_label = "label label-primary"
+            class_label = if status.start?
+              "label label-primary"
             elsif status.testing?
-              class_label = "label label-warning"
+              "label label-warning"
             elsif status.unchecked?
-              class_label = "label label-info"
+              "label label-info"
             else
-              class_label = "label label-success"
+              "label label-success"
             end
+
             %{<div class="#{class_label}">#{status.status}</div >}.html_safe
           end
         end
