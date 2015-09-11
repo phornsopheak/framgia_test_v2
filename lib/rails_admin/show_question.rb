@@ -12,7 +12,7 @@ module RailsAdmin
         end
 
         register_instance_option :link_icon do
-          ""
+          "icon-info-sign"
         end
 
         register_instance_option :pjax? do

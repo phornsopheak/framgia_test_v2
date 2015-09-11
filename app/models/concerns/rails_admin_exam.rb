@@ -3,6 +3,17 @@ module RailsAdminExam
 
   included do
     rails_admin do
+      show do
+        field :status
+        field :time do
+          label "Spent time"
+          formatted_value{bindings[:object].spent_time_format}
+        end
+        field :user
+        field :subject
+        field :questions
+      end
+
       list do
         filters [:user_id, :subject_id]
         sort_by :created_at
@@ -39,8 +50,8 @@ module RailsAdminExam
         end
         field :time do
           column_width 70
-          label "Spend time"
-          formatted_value{ bindings[:object].spent_time_format }
+          label "Spent time"
+          formatted_value{bindings[:object].spent_time_format}
         end
         field :score_exam do
           column_width 50

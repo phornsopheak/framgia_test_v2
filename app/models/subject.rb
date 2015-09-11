@@ -10,4 +10,8 @@ class Subject < ActiveRecord::Base
     greater_than: 0}
   validates :duration, presence: true, numericality: {only_integer: true,
     greater_than: 0}
+
+  def subject_duration
+    "#{duration} minutes"
+  end
 end
