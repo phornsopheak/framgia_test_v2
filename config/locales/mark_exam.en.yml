@@ -4,7 +4,7 @@ en:
       mark_exam:
         menu: "Mark"
         title: "Mark Exam"
-        breadcrumb: "Mark"
+        breadcrumb: "Mark %{object_label} "
     buttons:
       submit: "Submit"
     labels:

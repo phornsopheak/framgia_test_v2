@@ -6,7 +6,7 @@
       <%= l @exam.created_at, format: :short %></br>
       <% if @exam.checked? %>
         <%= t "exam.labels.exam_result" %>
-        <%= @exam.score_exam %>
+        <span class="show_score"><%= @exam.score_exam %></span>
       <% end %>
       <center><b><h2><%= @subject.name %></h2></b></center>
       <hr>

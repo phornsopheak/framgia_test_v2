@@ -18,6 +18,10 @@ module RailsAdmin
           true
         end
 
+        register_instance_option :breadcrumb_parent do
+          [:index, bindings[:abstract_model]]
+        end
+
         register_instance_option :http_methods do
           [:get, :post]
         end

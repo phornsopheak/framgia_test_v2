@@ -19,6 +19,7 @@ module RailsAdminExam
           hide
         end
         field :created_at do
+          column_width 150
           formatted_value do
             bindings[:view].content_tag(:a, "#{bindings[:object].created_at.strftime("%Y-%m-%d %I:%M%p")}",
               href: "exam/#{bindings[:object].id}")
@@ -26,18 +27,27 @@ module RailsAdminExam
         end
         field :user_column do
           label "User"
+          column_width 100
           formatted_value do
             bindings[:view].content_tag(:a, "#{bindings[:object].user.name}",
               href: "user/#{bindings[:object].user_id}")
           end
         end
         field :column_subject do
+          column_width 150
           label "Subject"
         end
+        field :time do
+          column_width 70
+          label "Spend time"
+          formatted_value{ bindings[:object].spent_time_format }
+        end
         field :score_exam do
+          column_width 50
           label "Score"
         end
         field :status do
+          column_width 70
           pretty_value do
             status = bindings[:object]
             if status.start?
@@ -54,6 +64,7 @@ module RailsAdminExam
         end
         field :mark_exam do
           label ""
+          column_width 50
           formatted_value do
             if bindings[:object].checked? || bindings[:object].unchecked?
               bindings[:view].content_tag(:a, "<p class='label label-primary'><b>Mark</b></p>".html_safe,
