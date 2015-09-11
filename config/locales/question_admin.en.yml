@@ -9,13 +9,13 @@ en:
         type: "Question Type"
         actions: "Actions"
       edit_question:
-        menu: 'Edit'
-        title: 'Edit question for %{object_label}'
-        breadcrumb: 'Question'
+        menu: "Edit"
+        title: "Edit question for %{object_label}"
+        breadcrumb: "%{object_label}"
       create_question:
-        menu: 'Add new'
-        title: 'Add new question'
-        breadcrumb: 'Add new question'
+        menu: "Add new"
+        title: "Add new question"
+        breadcrumb: "New"
       show_question:
         title: "Details for %{object_label}"
         menu: "Show"

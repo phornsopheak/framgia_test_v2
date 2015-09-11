@@ -19,6 +19,10 @@ module RailsAdmin
           "icon-ok"
         end
 
+        register_instance_option :breadcrumb_parent do
+          [:index, bindings[:abstract_model]]
+        end
+
         register_instance_option :pjax? do
           false
         end
