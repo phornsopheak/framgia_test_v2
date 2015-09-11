@@ -4,7 +4,7 @@ module RailsAdmin
       class MarkExam < RailsAdmin::Config::Actions::Base
 
         register_instance_option :visible? do
-          false
+          authorized? && bindings[:object].class == Exam
         end
 
         register_instance_option :member do

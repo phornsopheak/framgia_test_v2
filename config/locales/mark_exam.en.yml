@@ -2,8 +2,8 @@ en:
   admin:
     actions:
       mark_exam:
-        menu: "Mark"
-        title: "Mark Exam"
+        menu: "Mark exam"
+        title: "Mark %{object_label}"
         breadcrumb: "Mark %{object_label} "
     buttons:
       submit: "Submit"

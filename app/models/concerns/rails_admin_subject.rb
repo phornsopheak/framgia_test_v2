@@ -25,6 +25,17 @@ module RailsAdminSubject
         field :chatwork_room_id
         field :created_at
       end
+
+      show do
+        field :name
+        field :chatwork_room_id
+        field :number_of_question
+        field :duration do
+          formatted_value{bindings[:object].subject_duration}
+        end
+        field :exams
+        field :questions
+      end
     end
   end
 end
